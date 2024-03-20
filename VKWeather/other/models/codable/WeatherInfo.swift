@@ -7,7 +7,8 @@
 
 import Foundation
 
-public struct WeatherInfo {
+public struct WeatherInfo
+    : Codable {
     let temperature: Float
     let feelsLike: Float
     let pressure: Int

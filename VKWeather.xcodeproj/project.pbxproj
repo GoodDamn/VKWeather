@@ -176,7 +176,7 @@
 		25B6F7262BAAABB0007C71FB /* models */ = {
 			isa = PBXGroup;
 			children = (
-				25B6F7272BAAABBB007C71FB /* WeatherInfo.swift */,
+				25B6F7352BAABB7C007C71FB /* codable */,
 			);
 			path = models;
 			sourceTree = "<group>";
@@ -212,6 +212,14 @@
 				25B6F7332BAAB0DB007C71FB /* HTTPMethod.swift */,
 			);
 			path = http;
+			sourceTree = "<group>";
+		};
+		25B6F7352BAABB7C007C71FB /* codable */ = {
+			isa = PBXGroup;
+			children = (
+				25B6F7272BAAABBB007C71FB /* WeatherInfo.swift */,
+			);
+			path = codable;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

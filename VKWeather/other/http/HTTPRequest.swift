@@ -49,7 +49,7 @@ final public class HTTPRequest {
             .dataTask(
                 with: request,
                 completionHandler: onResponse
-            )
+            ).resume()
     }
     
     

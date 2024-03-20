@@ -20,12 +20,7 @@ final public class UtilsWeatherUrlMaker {
         lon: Float
     ) -> URL? {
         return URL(
-            string: """
-            \(mUrlApi)?
-            lat=\(lat)&
-            lon=\(lon)
-            appid=\(mApiKey)
-            """
+            string: "\(mUrlApi)?lat=\(lat)&lon=\(lon)&appid=\(mApiKey)"
         );
     }
     
