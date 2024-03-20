@@ -163,6 +163,7 @@
 		25B6F7222BAAA5AD007C71FB /* other */ = {
 			isa = PBXGroup;
 			children = (
+				25B6F7412BAAD7DF007C71FB /* classExtensions */,
 				25B6F7312BAAB0C4007C71FB /* enums */,
 				25B6F72D2BAAB051007C71FB /* http */,
 				25B6F7262BAAABB0007C71FB /* models */,
@@ -261,6 +262,13 @@
 				25B6F73F2BAAD459007C71FB /* CommonInfo.swift */,
 			);
 			path = common;
+			sourceTree = "<group>";
+		};
+		25B6F7412BAAD7DF007C71FB /* classExtensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = classExtensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

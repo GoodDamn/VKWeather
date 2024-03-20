@@ -8,20 +8,49 @@
 import UIKit
 
 final class ViewController
-    : UIViewController {
-
+: UIViewController {
+    
     private static let TAG = "ViewController:"
+    
+    // Strong refs
+    private var mLabelTemparature: UILabel!
+    private var mLabelPressure: UILabel!
+    private var mLabelHumidity: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let screenBounds = view
+            .bounds
+        
+        let w = screenBounds.width
+        let h = screenBounds.height
+        
+        mLabelPressure = UILabel(
+            frame: CGRect(
+                x: w * 0.1,
+                y: h * 0.1,
+                width: w,
+                height: 0
+            )
+        )
+        
+        mLabelPressure.font = UIFont.systemFont(
+            ofSize: 18.0
+        )
+        mLabelPressure.text = "Loading info"
+        mLabelPressure.textColor = .black
+        mLabelPressure.sizeToFit()
+        
+        view.addSubview(
+            mLabelPressure
+        )
         
         UtilsWeather.currentWeather(
             completion: onGetWeatherInfo(info:)
         )
-        
     }
-
+    
     // Executes on background thread
     private final func onGetWeatherInfo(
         info: WeatherInfo?
@@ -37,11 +66,27 @@ final class ViewController
             return
         }
         
+        let weather = info.weather[0]
+        
+        DispatchQueue.main.async { [weak self] in
+            self?.updateView(
+                with: weather
+            );
+        }
+        
         print(
             ViewController.TAG,
             "Weather Info:",
             info
         )
+        
+    }
+    
+    private final func updateView(
+        with weather: Weather
+    ) {
+        mLabelPressure.text = weather
+            .main
         
     }
 
