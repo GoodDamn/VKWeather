@@ -68,7 +68,7 @@ final class ViewController
         
         let weather = info.weather[0]
         
-        DispatchQueue.main.async { [weak self] in
+        DispatchQueue.ui { [weak self] in
             self?.updateView(
                 with: weather
             );
