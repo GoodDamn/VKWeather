@@ -22,6 +22,7 @@ final class ViewController
         
     }
 
+    // Executes on background thread
     private final func onGetWeatherInfo(
         info: WeatherInfo?
     ) {
