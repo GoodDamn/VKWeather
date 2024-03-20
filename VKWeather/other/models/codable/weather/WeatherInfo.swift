@@ -9,8 +9,5 @@ import Foundation
 
 public struct WeatherInfo
     : Codable {
-    let temperature: Float
-    let feelsLike: Float
-    let pressure: Int
-    let humidity: UInt8
+    let weather: [Weather]
 }
