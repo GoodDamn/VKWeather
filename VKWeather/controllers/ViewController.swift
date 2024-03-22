@@ -17,6 +17,8 @@ final class ViewController
     private var mLabelPressure: UILabel!
     private var mLabelHumidity: UILabel!
     
+    private let mWeatherService = WeatherService()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -46,49 +48,20 @@ final class ViewController
             mLabelPressure
         )
         
-        UtilsWeather.currentWeather(
-            completion: onGetWeatherInfo(info:)
-        )
+        mWeatherService.delegate = self
+        
+        mWeatherService.start()
     }
     
-    // Executes on background thread
-    private final func onGetWeatherInfo(
-        info: WeatherInfo?
-    ) {
-        
-        // It copies, need to optimize
-        // and getting it by reference?
-        guard let info = info else {
-            print(
-                ViewController.TAG,
-                "Unable to get weather info. nil"
-            )
-            return
-        }
-        
-        let weather = info.weather[0]
-        
-        DispatchQueue.ui { [weak self] in
-            self?.updateView(
-                with: weather
-            );
-        }
-        
-        print(
-            ViewController.TAG,
-            "Weather Info:",
-            info
-        )
-        
-    }
-    
-    private final func updateView(
-        with weather: Weather
-    ) {
-        mLabelPressure.text = weather
-            .main
-        
-    }
-
 }
 
+extension ViewController
+    : WeatherServiceProtocol {
+    
+    func onGetWeather(
+        model: Weather?
+    ) {
+        mLabelPressure.text = model?.main
+    }
+    
+}
