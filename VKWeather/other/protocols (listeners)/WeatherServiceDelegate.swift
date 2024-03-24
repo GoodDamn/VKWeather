@@ -14,4 +14,8 @@ public protocol WeatherServiceDelegate
         model: Weather?
     )
     
+    func onGetAirWeather(
+        model: WeatherAir?
+    )
+    
 }

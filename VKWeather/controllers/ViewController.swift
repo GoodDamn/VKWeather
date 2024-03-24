@@ -67,6 +67,12 @@ extension ViewController
         lat: Float,
         long: Float
     ) {
+        print(
+            ViewController.TAG,
+            "onGetLocation:",
+            lat,
+            long
+        )
         mWeatherService.start(
             lat: lat,
             long: long
@@ -81,7 +87,21 @@ extension ViewController
     func onGetWeather(
         model: Weather?
     ) {
-        mLabelPressure.text = model?.main
+        
+    }
+    
+    func onGetAirWeather(
+        model: WeatherAir?
+    ) {
+        guard let model = model else {
+            mLabelPressure.text = "Error"
+            return;
+        }
+        
+        mLabelPressure.text = String(
+            model.pressure
+        )
+        
     }
     
 }

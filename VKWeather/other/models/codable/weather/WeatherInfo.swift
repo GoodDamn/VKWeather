@@ -10,4 +10,5 @@ import Foundation
 public struct WeatherInfo
     : Codable {
     let weather: [Weather]
+    let main: WeatherMain
 }

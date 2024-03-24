@@ -7,7 +7,7 @@
 
 import Foundation
 
-public struct CommonInfo
+public struct WeatherAir
     : Codable {
     
     let temp: Float

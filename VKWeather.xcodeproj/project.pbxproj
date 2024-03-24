@@ -26,9 +26,8 @@
 		25B6F72B2BAAAD22007C71FB /* UtilsWeatherUrlMaker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F72A2BAAAD22007C71FB /* UtilsWeatherUrlMaker.swift */; };
 		25B6F7302BAAB0A2007C71FB /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F72F2BAAB0A2007C71FB /* HTTPRequest.swift */; };
 		25B6F7342BAAB0DB007C71FB /* HTTPMethod.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F7332BAAB0DB007C71FB /* HTTPMethod.swift */; };
-		25B6F7392BAAD386007C71FB /* Coordinates.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F7382BAAD386007C71FB /* Coordinates.swift */; };
 		25B6F73B2BAAD3CD007C71FB /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F73A2BAAD3CD007C71FB /* Weather.swift */; };
-		25B6F7402BAAD459007C71FB /* CommonInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F73F2BAAD459007C71FB /* CommonInfo.swift */; };
+		25B6F7402BAAD459007C71FB /* WeatherAir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F73F2BAAD459007C71FB /* WeatherAir.swift */; };
 		25B6F7452BAAD904007C71FB /* DispatchQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F7442BAAD904007C71FB /* DispatchQueue.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,9 +72,8 @@
 		25B6F72A2BAAAD22007C71FB /* UtilsWeatherUrlMaker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsWeatherUrlMaker.swift; sourceTree = "<group>"; };
 		25B6F72F2BAAB0A2007C71FB /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		25B6F7332BAAB0DB007C71FB /* HTTPMethod.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPMethod.swift; sourceTree = "<group>"; };
-		25B6F7382BAAD386007C71FB /* Coordinates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinates.swift; sourceTree = "<group>"; };
 		25B6F73A2BAAD3CD007C71FB /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
-		25B6F73F2BAAD459007C71FB /* CommonInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CommonInfo.swift; sourceTree = "<group>"; };
+		25B6F73F2BAAD459007C71FB /* WeatherAir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherAir.swift; sourceTree = "<group>"; };
 		25B6F7442BAAD904007C71FB /* DispatchQueue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DispatchQueue.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -269,20 +267,10 @@
 			path = codable;
 			sourceTree = "<group>";
 		};
-		25B6F7362BAAD363007C71FB /* coords */ = {
-			isa = PBXGroup;
-			children = (
-				25B6F7382BAAD386007C71FB /* Coordinates.swift */,
-			);
-			path = coords;
-			sourceTree = "<group>";
-		};
 		25B6F7372BAAD370007C71FB /* weather */ = {
 			isa = PBXGroup;
 			children = (
-				25B6F73E2BAAD446007C71FB /* common */,
 				25B6F73C2BAAD424007C71FB /* weather */,
-				25B6F7362BAAD363007C71FB /* coords */,
 				25B6F7272BAAABBB007C71FB /* WeatherInfo.swift */,
 			);
 			path = weather;
@@ -291,17 +279,10 @@
 		25B6F73C2BAAD424007C71FB /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				25B6F73F2BAAD459007C71FB /* WeatherAir.swift */,
 				25B6F73A2BAAD3CD007C71FB /* Weather.swift */,
 			);
 			path = weather;
-			sourceTree = "<group>";
-		};
-		25B6F73E2BAAD446007C71FB /* common */ = {
-			isa = PBXGroup;
-			children = (
-				25B6F73F2BAAD459007C71FB /* CommonInfo.swift */,
-			);
-			path = common;
 			sourceTree = "<group>";
 		};
 		25B6F7412BAAD7DF007C71FB /* classExtensions */ = {
@@ -462,11 +443,10 @@
 				25B6F7342BAAB0DB007C71FB /* HTTPMethod.swift in Sources */,
 				2592D26E2BB02A5000650B28 /* LocationService.swift in Sources */,
 				25B6F7302BAAB0A2007C71FB /* HTTPRequest.swift in Sources */,
-				25B6F7392BAAD386007C71FB /* Coordinates.swift in Sources */,
 				25B6F7282BAAABBB007C71FB /* WeatherInfo.swift in Sources */,
 				25B6F72B2BAAAD22007C71FB /* UtilsWeatherUrlMaker.swift in Sources */,
 				2592D2732BB0353100650B28 /* LocationServiceDelegate.swift in Sources */,
-				25B6F7402BAAD459007C71FB /* CommonInfo.swift in Sources */,
+				25B6F7402BAAD459007C71FB /* WeatherAir.swift in Sources */,
 				25B6F7452BAAD904007C71FB /* DispatchQueue.swift in Sources */,
 				2592D2682BAD792200650B28 /* WeatherService.swift in Sources */,
 			);
