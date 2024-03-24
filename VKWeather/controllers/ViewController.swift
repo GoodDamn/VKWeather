@@ -37,7 +37,7 @@ final class ViewController
                 x: w * 0.1,
                 y: h * 0.1,
                 width: w,
-                height: h * 0.07)
+                height: w * 0.12)
         )
         
         mLabelCity = UILabel(
@@ -45,7 +45,7 @@ final class ViewController
                 x: w*0.1,
                 y: h*0.17,
                 width: w,
-                height: h * 0.03
+                height: w * 0.05
             )
         )
         
@@ -124,9 +124,9 @@ extension ViewController
             return;
         }
         
-        let celius = model.temp - 273.15
+        let celius = Int(model.temp - 273.15)
         
-        mLabelTemp.text = "\(celius) C"
+        mLabelTemp.text = "\(celius) °C"
         
     }
     
