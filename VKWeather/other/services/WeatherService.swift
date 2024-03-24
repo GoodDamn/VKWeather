@@ -9,7 +9,7 @@ import Foundation
 
 final public class WeatherService {
     
-    public final weak var delegate: WeatherServiceProtocol?
+    public final weak var delegate: WeatherServiceDelegate?
     
     public final func start(
         lat: Float,
