@@ -45,18 +45,16 @@ final class ViewController
                 x: w*0.1,
                 y: h*0.17,
                 width: w,
-                height: h * 0.3
+                height: h * 0.03
             )
         )
         
         mLabelTemp.font = UIFont.systemFont(
-            ofSize: mLabelTemp.frame
-                .height
+            ofSize: mLabelTemp.height()
         )
         
         mLabelCity.font = UIFont.systemFont(
-            ofSize: mLabelCity.frame
-                .height
+            ofSize: mLabelCity.height()
         )
         
         mLabelTemp.text = "-"
@@ -116,7 +114,7 @@ extension ViewController
     func onGetCityInfo(
         model: WeatherCity?
     ) {
-        <#code#>
+        mLabelCity.text = model?.city
     }
     
     func onGetAirWeather(
