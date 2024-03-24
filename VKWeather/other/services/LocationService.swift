@@ -11,27 +11,19 @@ import MapKit
 final public class LocationService
     : NSObject {
     
-    public var latitude: Float {
-        get {
-            return mLocationManager
-                .latitude()
-        }
-    }
-    
-    public var longtitude: Float {
-        get {
-            return mLocationManager
-                .longtitude()
-        }
-    }
+    public weak var delegate:
+        LocationServiceDelegate?
     
     private let mLocationManager: CLLocationManager
     
     override init() {
-        
         mLocationManager = CLLocationManager()
         super.init()
         mLocationManager.delegate = self
+    }
+    
+    
+    public final func start() {
         mLocationManager
             .requestWhenInUseAuthorization()
     }
@@ -45,6 +37,18 @@ extension LocationService
         _ manager: CLLocationManager
     ) {
         print("LocationManager: didChangeAuth");
+        
+        let status = manager.authorizationStatus
+        
+        if !(status == .authorizedAlways ||
+            status == .authorizedWhenInUse) {
+            return
+        }
+        
+        delegate?.onGetLocation(
+            lat: manager.latitude(),
+            long: manager.longtitude()
+        )
     }
     
 }

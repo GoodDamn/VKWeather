@@ -7,7 +7,7 @@
 
 import Foundation
 
-public protocol WeatherServiceProtocol
+public protocol WeatherServiceDelegate
     : AnyObject {
     
     func onGetWeather(

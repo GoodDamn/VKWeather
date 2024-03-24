@@ -53,16 +53,30 @@ final class ViewController
         )
         
         mWeatherService.delegate = self
+        mLocationService.delegate = self
+        
+        mLocationService.start()
+    }
+    
+}
+
+extension ViewController
+    : LocationServiceDelegate {
+    
+    func onGetLocation(
+        lat: Float,
+        long: Float
+    ) {
         mWeatherService.start(
-            lat: mLocationService.latitude,
-            long: mLocationService.longtitude
+            lat: lat,
+            long: long
         )
     }
     
 }
 
 extension ViewController
-    : WeatherServiceProtocol {
+    : WeatherServiceDelegate {
     
     func onGetWeather(
         model: Weather?
