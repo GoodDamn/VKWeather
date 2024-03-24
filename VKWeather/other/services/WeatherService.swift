@@ -9,10 +9,15 @@ import Foundation
 
 final public class WeatherService {
     
-    weak var delegate: WeatherServiceProtocol?
+    public final weak var delegate: WeatherServiceProtocol?
     
-    public final func start() {
+    public final func start(
+        lat: Float,
+        long: Float
+    ) {
         UtilsWeather.currentWeather(
+            lat: lat,
+            lon: long,
             completion: onGetWeatherInfo(info:)
         )
     }

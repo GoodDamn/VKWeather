@@ -17,7 +17,11 @@ final class ViewController
     private var mLabelPressure: UILabel!
     private var mLabelHumidity: UILabel!
     
-    private let mWeatherService = WeatherService()
+    private let mWeatherService =
+        WeatherService()
+    
+    private let mLocationService =
+        LocationService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,8 +53,10 @@ final class ViewController
         )
         
         mWeatherService.delegate = self
-        
-        mWeatherService.start()
+        mWeatherService.start(
+            lat: mLocationService.latitude,
+            long: mLocationService.longtitude
+        )
     }
     
 }

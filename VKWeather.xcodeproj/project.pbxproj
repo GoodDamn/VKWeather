@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		2592D2682BAD792200650B28 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D2672BAD792200650B28 /* WeatherService.swift */; };
 		2592D26B2BAD797700650B28 /* WeatherServiceProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26A2BAD797700650B28 /* WeatherServiceProtocol.swift */; };
+		2592D26E2BB02A5000650B28 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26D2BB02A5000650B28 /* LocationService.swift */; };
+		2592D2712BB02E7200650B28 /* CLLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D2702BB02E7200650B28 /* CLLocationManager.swift */; };
 		25B6F6F12BAAA327007C71FB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F6F02BAAA327007C71FB /* AppDelegate.swift */; };
 		25B6F6F32BAAA327007C71FB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F6F22BAAA327007C71FB /* SceneDelegate.swift */; };
 		25B6F6F52BAAA327007C71FB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 25B6F6F42BAAA327007C71FB /* ViewController.swift */; };
@@ -49,6 +51,8 @@
 /* Begin PBXFileReference section */
 		2592D2672BAD792200650B28 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		2592D26A2BAD797700650B28 /* WeatherServiceProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceProtocol.swift; sourceTree = "<group>"; };
+		2592D26D2BB02A5000650B28 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
+		2592D2702BB02E7200650B28 /* CLLocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CLLocationManager.swift; sourceTree = "<group>"; };
 		25B6F6ED2BAAA327007C71FB /* VKWeather.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VKWeather.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		25B6F6F02BAAA327007C71FB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		25B6F6F22BAAA327007C71FB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -102,6 +106,7 @@
 			isa = PBXGroup;
 			children = (
 				2592D2672BAD792200650B28 /* WeatherService.swift */,
+				2592D26D2BB02A5000650B28 /* LocationService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -112,6 +117,14 @@
 				2592D26A2BAD797700650B28 /* WeatherServiceProtocol.swift */,
 			);
 			path = "protocols (listeners)";
+			sourceTree = "<group>";
+		};
+		2592D26F2BB02E5900650B28 /* MapKit */ = {
+			isa = PBXGroup;
+			children = (
+				2592D2702BB02E7200650B28 /* CLLocationManager.swift */,
+			);
+			path = MapKit;
 			sourceTree = "<group>";
 		};
 		25B6F6E42BAAA327007C71FB = {
@@ -291,6 +304,7 @@
 		25B6F7412BAAD7DF007C71FB /* classExtensions */ = {
 			isa = PBXGroup;
 			children = (
+				2592D26F2BB02E5900650B28 /* MapKit */,
 				25B6F7432BAAD8F6007C71FB /* Foundation */,
 			);
 			path = classExtensions;
@@ -440,8 +454,10 @@
 				25B6F6F12BAAA327007C71FB /* AppDelegate.swift in Sources */,
 				25B6F7252BAAA5DB007C71FB /* UtilsWeather.swift in Sources */,
 				25B6F6F32BAAA327007C71FB /* SceneDelegate.swift in Sources */,
+				2592D2712BB02E7200650B28 /* CLLocationManager.swift in Sources */,
 				25B6F73B2BAAD3CD007C71FB /* Weather.swift in Sources */,
 				25B6F7342BAAB0DB007C71FB /* HTTPMethod.swift in Sources */,
+				2592D26E2BB02A5000650B28 /* LocationService.swift in Sources */,
 				25B6F7302BAAB0A2007C71FB /* HTTPRequest.swift in Sources */,
 				25B6F7392BAAD386007C71FB /* Coordinates.swift in Sources */,
 				25B6F7282BAAABBB007C71FB /* WeatherInfo.swift in Sources */,
