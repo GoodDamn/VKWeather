@@ -27,9 +27,19 @@ final public class WeatherService {
         info: WeatherInfo?
     ) {
         DispatchQueue.ui { [weak self] in
-            self?.delegate?.onGetWeather(
+            
+            guard let delegate = self?.delegate else {
+                return;
+            }
+            
+            delegate.onGetWeather(
                 model: info?.weather[0]
             )
+            
+            delegate.onGetAirWeather(
+                model: info?.main
+            )
+            
         }
         
     }
