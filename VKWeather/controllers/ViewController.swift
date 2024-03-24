@@ -13,9 +13,7 @@ final class ViewController
     private static let TAG = "ViewController:"
     
     // Strong refs
-    private var mLabelTemparature: UILabel!
-    private var mLabelPressure: UILabel!
-    private var mLabelHumidity: UILabel!
+    private var mLabelTemp: UILabel!
     
     private let mWeatherService =
         WeatherService()
@@ -32,24 +30,29 @@ final class ViewController
         let w = screenBounds.width
         let h = screenBounds.height
         
-        mLabelPressure = UILabel(
+        
+        mLabelTemp = UILabel(
             frame: CGRect(
                 x: w * 0.1,
-                y: h * 0.1,
+                y: h * 0.2,
                 width: w,
-                height: 0
-            )
+                height: h * 0.1)
         )
         
-        mLabelPressure.font = UIFont.systemFont(
-            ofSize: 18.0
+        
+        mLabelTemp.font = UIFont.systemFont(
+            ofSize: mLabelTemp.frame
+                .height
         )
-        mLabelPressure.text = "Loading info"
-        mLabelPressure.textColor = .black
-        mLabelPressure.sizeToFit()
+        
+        
+        mLabelTemp.text = "-"
+        mLabelTemp.textColor = .black
+        mLabelTemp.sizeToFit()
+        
         
         view.addSubview(
-            mLabelPressure
+            mLabelTemp
         )
         
         mWeatherService.delegate = self
@@ -94,13 +97,12 @@ extension ViewController
         model: WeatherAir?
     ) {
         guard let model = model else {
-            mLabelPressure.text = "Error"
             return;
         }
         
-        mLabelPressure.text = String(
-            model.pressure
-        )
+        let celius = model.temp - 273.15
+        
+        mLabelTemp.text = "\(celius) C"
         
     }
     
