@@ -8,12 +8,13 @@
 import UIKit
 
 final class ViewController
-: UIViewController {
+    : UIViewController {
     
     private static let TAG = "ViewController:"
     
     // Strong refs
     private var mLabelTemp: UILabel!
+    private var mLabelCity: UILabel!
     
     private let mWeatherService =
         WeatherService()
@@ -34,25 +35,42 @@ final class ViewController
         mLabelTemp = UILabel(
             frame: CGRect(
                 x: w * 0.1,
-                y: h * 0.2,
+                y: h * 0.1,
                 width: w,
-                height: h * 0.1)
+                height: h * 0.07)
         )
         
+        mLabelCity = UILabel(
+            frame: CGRect(
+                x: w*0.1,
+                y: h*0.17,
+                width: w,
+                height: h * 0.3
+            )
+        )
         
         mLabelTemp.font = UIFont.systemFont(
             ofSize: mLabelTemp.frame
                 .height
         )
         
+        mLabelCity.font = UIFont.systemFont(
+            ofSize: mLabelCity.frame
+                .height
+        )
         
         mLabelTemp.text = "-"
         mLabelTemp.textColor = .black
-        mLabelTemp.sizeToFit()
         
+        mLabelCity.text = "Not your city"
+        mLabelCity.textColor = .black
         
         view.addSubview(
             mLabelTemp
+        )
+        
+        view.addSubview(
+            mLabelCity
         )
         
         mWeatherService.delegate = self
@@ -90,7 +108,15 @@ extension ViewController
     func onGetWeather(
         model: Weather?
     ) {
-        
+        guard let model = model else {
+            return
+        }
+    }
+    
+    func onGetCityInfo(
+        model: WeatherCity?
+    ) {
+        <#code#>
     }
     
     func onGetAirWeather(

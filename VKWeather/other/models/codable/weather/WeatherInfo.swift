@@ -11,4 +11,5 @@ public struct WeatherInfo
     : Codable {
     let weather: [Weather]
     let main: WeatherAir
+    let name: String
 }

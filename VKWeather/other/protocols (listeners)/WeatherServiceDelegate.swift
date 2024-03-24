@@ -18,4 +18,8 @@ public protocol WeatherServiceDelegate
         model: WeatherAir?
     )
     
+    func onGetCityInfo(
+        model: WeatherCity?
+    )
+    
 }

@@ -40,6 +40,14 @@ final public class WeatherService {
                 model: info?.main
             )
             
+            delegate.onGetCityInfo(
+                model: WeatherCity(
+                    city: info?.name,
+                    sunriseTime: 0,
+                    sunsetTime: 0
+                )
+            )
+            
         }
         
     }
