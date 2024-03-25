@@ -17,6 +17,7 @@ final class ViewController
     private var mLabelCity: UILabel!
     private var mLabelTempMaxMin: UILabel!
     private var mLabelWeatherState: UILabel!
+    private var mLabelImageHumidity: UILabelImage!
     
     private let mWeatherService =
         WeatherService()
@@ -71,27 +72,30 @@ final class ViewController
             )
         )
         
-        
-        mLabelTemp.font = UIFont.systemFont(
-            ofSize: mLabelTemp
-                .height()
-        )
-        
-        mLabelWeatherState.font = UIFont
-            .systemFont(
-                ofSize: mLabelWeatherState
-                    .height()
+        mLabelImageHumidity = UILabelImage(
+            frame: CGRect(
+                x: marginLeft,
+                y: mLabelTempMaxMin
+                    .ybottom() * 1.01,
+                width: w,
+                height: w * 0.04
             )
-        
-        mLabelCity.font = UIFont.systemFont(
-            ofSize: mLabelCity
-                .height()
         )
         
-        mLabelTempMaxMin.font = UIFont.systemFont(
-            ofSize: mLabelTempMaxMin
-                .height()
-        )
+        mLabelTemp
+            .defaultFont()
+        
+        mLabelWeatherState
+            .defaultFont()
+        
+        mLabelCity
+            .defaultFont()
+        
+        mLabelTempMaxMin
+            .defaultFont()
+        
+        mLabelImageHumidity
+            .defaultFont()
         
         mLabelTemp.text = "-"
         mLabelTemp.textColor = .black
@@ -104,6 +108,12 @@ final class ViewController
         
         mLabelTempMaxMin.text = "--/--"
         mLabelTempMaxMin.textColor = .black
+        
+        mLabelImageHumidity.text = " -- %"
+        mLabelImageHumidity.textColor = .black
+        mLabelImageHumidity.leftImage = UIImage(
+            systemName: "humidity"
+        )
         
         view.addSubview(
             mLabelTemp
@@ -120,6 +130,12 @@ final class ViewController
         view.addSubview(
             mLabelTempMaxMin
         )
+        
+        view.addSubview(
+            mLabelImageHumidity
+        )
+        
+        mLabelImageHumidity.render()
         
         mWeatherService.delegate = self
         mLocationService.delegate = self
@@ -179,6 +195,11 @@ extension ViewController
         mLabelTempMaxMin.text = """
             \(model.temp_max.celius()) °C / \(model.temp_min.celius()) °C
             """
+        mLabelImageHumidity.text =
+            "\(model.humidity) %"
+        
+        mLabelImageHumidity.render()
+        
     }
     
 }
