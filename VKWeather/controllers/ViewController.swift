@@ -15,6 +15,7 @@ final class ViewController
     // Strong refs
     private var mLabelTemp: UILabel!
     private var mLabelCity: UILabel!
+    private var mLabelTempMaxMinFeels: UILabel!
     
     private let mWeatherService =
         WeatherService()
@@ -31,10 +32,11 @@ final class ViewController
         let w = screenBounds.width
         let h = screenBounds.height
         
+        let marginLeft = w * 0.1
         
         mLabelTemp = UILabel(
             frame: CGRect(
-                x: w * 0.1,
+                x: marginLeft,
                 y: h * 0.1,
                 width: w,
                 height: w * 0.12)
@@ -42,10 +44,19 @@ final class ViewController
         
         mLabelCity = UILabel(
             frame: CGRect(
-                x: w*0.1,
+                x: marginLeft,
                 y: h*0.17,
                 width: w,
                 height: w * 0.05
+            )
+        )
+        
+        mLabelTempMaxMinFeels = UILabel(
+            frame: CGRect(
+                x: marginLeft,
+                y: mLabelCity.leftBottom(),
+                width: <#T##CGFloat#>,
+                height: <#T##CGFloat#>
             )
         )
         
@@ -125,7 +136,6 @@ extension ViewController
         }
         
         let celius = Int(model.temp - 273.15)
-        
         mLabelTemp.text = "\(celius) °C"
         
     }
