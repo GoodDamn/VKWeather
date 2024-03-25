@@ -7,7 +7,10 @@
 
 import Foundation
 
-final public class WeatherService {
+final public class WeatherService
+    : BaseModelService<WeatherInfo> {
+    
+    private static let mUrlApiWeather = "https://api.openweathermap.org/data/2.5/weather"
     
     public final weak var delegate: WeatherServiceDelegate?
     
@@ -15,16 +18,22 @@ final public class WeatherService {
         lat: Float,
         long: Float
     ) {
-        UtilsWeather.currentWeather(
-            lat: lat,
-            lon: long,
-            completion: onGetWeatherInfo(info:)
+        let url = UtilsWeatherUrlMaker
+            .mkUrl(
+                url: WeatherService
+                    .mUrlApiWeather,
+                lat: lat,
+                lon: long
+            )
+        
+        startService(
+            url: url
         )
     }
     
     // Executes on background thread
-    private final func onGetWeatherInfo(
-        info: WeatherInfo?
+    final override func onGetModelBackground(
+        model: WeatherInfo?
     ) {
         DispatchQueue.ui { [weak self] in
             
@@ -33,23 +42,22 @@ final public class WeatherService {
             }
             
             delegate.onGetWeather(
-                model: info?.weather[0]
+                model: model?.weather[0]
             )
             
             delegate.onGetAirWeather(
-                model: info?.main
+                model: model?.main
             )
             
             delegate.onGetCityInfo(
                 model: WeatherCity(
-                    city: info?.name,
+                    city: model?.name,
                     sunriseTime: 0,
                     sunsetTime: 0
                 )
             )
             
         }
-        
     }
     
 }

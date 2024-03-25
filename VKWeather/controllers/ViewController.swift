@@ -165,8 +165,6 @@ final class ViewController
             mLabelImagePressure
         )
         
-        mLabelImageHumidity.render()
-        
         mWeatherService.delegate = self
         mLocationService.delegate = self
         
