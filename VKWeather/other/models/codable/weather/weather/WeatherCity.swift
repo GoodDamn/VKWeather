@@ -7,8 +7,7 @@
 
 import Foundation
 
-public struct WeatherCity
-    : Codable {
+public struct WeatherCity {
     let city: String?
     let sunriseTime: Int
     let sunsetTime: Int

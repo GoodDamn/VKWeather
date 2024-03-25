@@ -9,7 +9,7 @@ import Foundation
 
 extension Float {
     
-    mutating func celius() -> Int {
+    func celius() -> Int {
         Int(self - 273.15)
     }
     

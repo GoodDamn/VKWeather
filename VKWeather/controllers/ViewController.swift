@@ -54,7 +54,7 @@ final class ViewController
         mLabelTempMaxMin = UILabel(
             frame: CGRect(
                 x: marginLeft,
-                y: mLabelCity.ybottom(),
+                y: mLabelCity.ybottom() * 1.2,
                 width: w,
                 height: w * 0.04
             )
@@ -150,9 +150,12 @@ extension ViewController
             return;
         }
         
-        let celius = Int(model.temp - 273.15)
-        mLabelTemp.text = "\(celius) °C"
-        mLabelTempMaxMin.text
+        mLabelTemp.text =
+            "\(model.temp.celius()) °C"
+        
+        mLabelTempMaxMin.text = """
+            \(model.temp_max.celius()) °C / \(model.temp_min.celius()) °C
+            """
     }
     
 }
