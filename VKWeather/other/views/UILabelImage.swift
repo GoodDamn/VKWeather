@@ -19,7 +19,9 @@ final class UILabelImage
         }
     }
     
-    override init(frame: CGRect) {
+    override init(
+        frame: CGRect
+    ) {
         mImageAttachment = NSTextAttachment()
         super.init(
             frame: frame

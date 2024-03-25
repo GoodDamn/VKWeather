@@ -9,10 +9,10 @@ import UIKit
 
 extension UIColor {
     
-    static func accent() -> UIColor? {
-        return UIColor(
+    static func accent() -> UIColor {
+        UIColor(
             named: "AccentColor"
-        )
+        ) ?? UIColor.black
     }
     
 }

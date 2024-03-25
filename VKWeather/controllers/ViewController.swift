@@ -125,14 +125,20 @@ final class ViewController
         
         mLabelImageHumidity.text = " -- %"
         mLabelImageHumidity.textColor = .black
+        
         mLabelImageHumidity.leftImage = UIImage(
             systemName: "humidity"
+        )?.withTintColor(
+            .accent()
         )
         
         mLabelImagePressure.text = " --- hPa"
         mLabelImagePressure.textColor = .black
+        
         mLabelImagePressure.leftImage = UIImage(
             systemName: "cloud"
+        )?.withTintColor(
+            .accent()
         )
         
         view.addSubview(
