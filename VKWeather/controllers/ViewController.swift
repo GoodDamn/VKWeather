@@ -237,8 +237,11 @@ extension ViewController
         mLabelImagePressure.text =
             "\(model.pressure) hPa"
         
-        mLabelImageHumidity.render()
-        mLabelImagePressure.render()
+        mLabelImageHumidity
+            .renderImageText()
+        
+        mLabelImagePressure
+            .renderImageText()
     }
     
 }

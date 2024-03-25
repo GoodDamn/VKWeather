@@ -34,9 +34,6 @@ final public class WeatherForecastService
     override final func onGetModelBackground(
         model: WeatherForecast?
     ) {
-        print(
-            "WeatherForecastService: onGetModel:",
-            model
-        )
+        
     }
 }

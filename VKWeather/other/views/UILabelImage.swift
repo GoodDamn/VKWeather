@@ -37,7 +37,7 @@ final class UILabelImage
         )
     }
     
-    public final func render() {
+    public final func renderImageText() {
         
         guard let text = text else {
             return

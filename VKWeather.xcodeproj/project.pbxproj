@@ -132,12 +132,36 @@
 			path = forecast;
 			sourceTree = "<group>";
 		};
-		2592D2662BAD791400650B28 /* services */ = {
+		250371252BB1F4BF00EF9C1F /* weather */ = {
 			isa = PBXGroup;
 			children = (
 				2592D2672BAD792200650B28 /* WeatherService.swift */,
-				2592D26D2BB02A5000650B28 /* LocationService.swift */,
 				2503711A2BB1BED600EF9C1F /* WeatherForecastService.swift */,
+			);
+			path = weather;
+			sourceTree = "<group>";
+		};
+		250371262BB1F4D000EF9C1F /* location */ = {
+			isa = PBXGroup;
+			children = (
+				2592D26D2BB02A5000650B28 /* LocationService.swift */,
+			);
+			path = location;
+			sourceTree = "<group>";
+		};
+		250371272BB1F7A200EF9C1F /* weather */ = {
+			isa = PBXGroup;
+			children = (
+				2592D2742BB0420E00650B28 /* WeatherCity.swift */,
+			);
+			path = weather;
+			sourceTree = "<group>";
+		};
+		2592D2662BAD791400650B28 /* services */ = {
+			isa = PBXGroup;
+			children = (
+				250371262BB1F4D000EF9C1F /* location */,
+				250371252BB1F4BF00EF9C1F /* weather */,
 				2503711E2BB1CAF000EF9C1F /* BaseModelService.swift */,
 			);
 			path = services;
@@ -282,6 +306,7 @@
 		25B6F7262BAAABB0007C71FB /* models */ = {
 			isa = PBXGroup;
 			children = (
+				250371272BB1F7A200EF9C1F /* weather */,
 				25B6F7352BAABB7C007C71FB /* codable */,
 			);
 			path = models;
@@ -343,7 +368,6 @@
 			children = (
 				25B6F73F2BAAD459007C71FB /* WeatherAir.swift */,
 				25B6F73A2BAAD3CD007C71FB /* Weather.swift */,
-				2592D2742BB0420E00650B28 /* WeatherCity.swift */,
 			);
 			path = viewModels;
 			sourceTree = "<group>";
