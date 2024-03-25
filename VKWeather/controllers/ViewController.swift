@@ -18,6 +18,7 @@ final class ViewController
     private var mLabelTempMaxMin: UILabel!
     private var mLabelWeatherState: UILabel!
     private var mLabelImageHumidity: UILabelImage!
+    private var mLabelImagePressure: UILabelImage!
     
     private let mWeatherService =
         WeatherService()
@@ -76,7 +77,17 @@ final class ViewController
             frame: CGRect(
                 x: marginLeft,
                 y: mLabelTempMaxMin
-                    .ybottom() * 1.01,
+                    .ybottom() + h * 0.05,
+                width: w,
+                height: w * 0.04
+            )
+        )
+        
+        mLabelImagePressure = UILabelImage(
+            frame: CGRect(
+                x: marginLeft,
+                y: mLabelImageHumidity
+                    .ybottom() + h * 0.01,
                 width: w,
                 height: w * 0.04
             )
@@ -97,6 +108,9 @@ final class ViewController
         mLabelImageHumidity
             .defaultFont()
         
+        mLabelImagePressure
+            .defaultFont()
+        
         mLabelTemp.text = "-"
         mLabelTemp.textColor = .black
         
@@ -113,6 +127,12 @@ final class ViewController
         mLabelImageHumidity.textColor = .black
         mLabelImageHumidity.leftImage = UIImage(
             systemName: "humidity"
+        )
+        
+        mLabelImagePressure.text = " --- hPa"
+        mLabelImagePressure.textColor = .black
+        mLabelImagePressure.leftImage = UIImage(
+            systemName: "cloud"
         )
         
         view.addSubview(
@@ -133,6 +153,10 @@ final class ViewController
         
         view.addSubview(
             mLabelImageHumidity
+        )
+        
+        view.addSubview(
+            mLabelImagePressure
         )
         
         mLabelImageHumidity.render()
@@ -198,8 +222,11 @@ extension ViewController
         mLabelImageHumidity.text =
             "\(model.humidity) %"
         
-        mLabelImageHumidity.render()
+        mLabelImagePressure.text =
+            "\(model.pressure) hPa"
         
+        mLabelImageHumidity.render()
+        mLabelImagePressure.render()
     }
     
 }
