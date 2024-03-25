@@ -11,7 +11,7 @@ public protocol WeatherForecastDelegate
     : AnyObject {
     
     func onForecastWeather(
-        forecastModel: [WeatherInfo]
+        forecastModel: [WeatherForecastDay]
     )
     
 }

@@ -169,6 +169,7 @@ final class ViewController
         )
         
         mWeatherService.delegate = self
+        mWeatherForecastService.delegate = self
         mLocationService.delegate = self
         
         mLocationService.start()
@@ -243,5 +244,17 @@ extension ViewController
         mLabelImagePressure
             .renderImageText()
     }
+    
+}
+
+extension ViewController
+    : WeatherForecastDelegate {
+    
+    func onForecastWeather(
+        forecastModel: [WeatherForecastDay]
+    ) {
+        
+    }
+    
     
 }
