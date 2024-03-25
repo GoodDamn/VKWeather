@@ -15,7 +15,7 @@ final class ViewController
     // Strong refs
     private var mLabelTemp: UILabel!
     private var mLabelCity: UILabel!
-    private var mLabelTempMaxMinFeels: UILabel!
+    private var mLabelTempMaxMin: UILabel!
     
     private let mWeatherService =
         WeatherService()
@@ -51,21 +51,28 @@ final class ViewController
             )
         )
         
-        mLabelTempMaxMinFeels = UILabel(
+        mLabelTempMaxMin = UILabel(
             frame: CGRect(
                 x: marginLeft,
-                y: mLabelCity.leftBottom(),
-                width: <#T##CGFloat#>,
-                height: <#T##CGFloat#>
+                y: mLabelCity.ybottom(),
+                width: w,
+                height: w * 0.04
             )
         )
         
         mLabelTemp.font = UIFont.systemFont(
-            ofSize: mLabelTemp.height()
+            ofSize: mLabelTemp
+                .height()
         )
         
         mLabelCity.font = UIFont.systemFont(
-            ofSize: mLabelCity.height()
+            ofSize: mLabelCity
+                .height()
+        )
+        
+        mLabelTempMaxMin.font = UIFont.systemFont(
+            ofSize: mLabelTempMaxMin
+                .height()
         )
         
         mLabelTemp.text = "-"
@@ -74,12 +81,19 @@ final class ViewController
         mLabelCity.text = "Not your city"
         mLabelCity.textColor = .black
         
+        mLabelTempMaxMin.text = "--/--"
+        mLabelTempMaxMin.textColor = .black
+        
         view.addSubview(
             mLabelTemp
         )
         
         view.addSubview(
             mLabelCity
+        )
+        
+        view.addSubview(
+            mLabelTempMaxMin
         )
         
         mWeatherService.delegate = self
@@ -103,6 +117,7 @@ extension ViewController
             lat,
             long
         )
+        
         mWeatherService.start(
             lat: lat,
             long: long
@@ -137,7 +152,7 @@ extension ViewController
         
         let celius = Int(model.temp - 273.15)
         mLabelTemp.text = "\(celius) °C"
-        
+        mLabelTempMaxMin.text
     }
     
 }
