@@ -13,6 +13,8 @@
 		250371222BB1D34100EF9C1F /* WeatherForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371212BB1D34100EF9C1F /* WeatherForecast.swift */; };
 		250371242BB1D74700EF9C1F /* WeatherInfoCity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371232BB1D74700EF9C1F /* WeatherInfoCity.swift */; };
 		2503712A2BB1F87D00EF9C1F /* WeatherForecastDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371292BB1F87D00EF9C1F /* WeatherForecastDay.swift */; };
+		2503712C2BB1FA5000EF9C1F /* UITableViewForecast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503712B2BB1FA5000EF9C1F /* UITableViewForecast.swift */; };
+		2503712F2BB1FE1300EF9C1F /* UITableViewCellDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503712E2BB1FE1300EF9C1F /* UITableViewCellDay.swift */; };
 		2592D2682BAD792200650B28 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D2672BAD792200650B28 /* WeatherService.swift */; };
 		2592D26B2BAD797700650B28 /* WeatherServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */; };
 		2592D26E2BB02A5000650B28 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26D2BB02A5000650B28 /* LocationService.swift */; };
@@ -67,6 +69,8 @@
 		250371212BB1D34100EF9C1F /* WeatherForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecast.swift; sourceTree = "<group>"; };
 		250371232BB1D74700EF9C1F /* WeatherInfoCity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherInfoCity.swift; sourceTree = "<group>"; };
 		250371292BB1F87D00EF9C1F /* WeatherForecastDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherForecastDay.swift; sourceTree = "<group>"; };
+		2503712B2BB1FA5000EF9C1F /* UITableViewForecast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewForecast.swift; sourceTree = "<group>"; };
+		2503712E2BB1FE1300EF9C1F /* UITableViewCellDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewCellDay.swift; sourceTree = "<group>"; };
 		2592D2672BAD792200650B28 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceDelegate.swift; sourceTree = "<group>"; };
 		2592D26D2BB02A5000650B28 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -168,6 +172,14 @@
 			path = forecast;
 			sourceTree = "<group>";
 		};
+		2503712D2BB1FDF900EF9C1F /* viewCells */ = {
+			isa = PBXGroup;
+			children = (
+				2503712E2BB1FE1300EF9C1F /* UITableViewCellDay.swift */,
+			);
+			path = viewCells;
+			sourceTree = "<group>";
+		};
 		2592D2662BAD791400650B28 /* services */ = {
 			isa = PBXGroup;
 			children = (
@@ -210,7 +222,9 @@
 		2592D27F2BB1A78600650B28 /* views */ = {
 			isa = PBXGroup;
 			children = (
+				2503712D2BB1FDF900EF9C1F /* viewCells */,
 				2592D2802BB1A7A100650B28 /* UILabelImage.swift */,
+				2503712B2BB1FA5000EF9C1F /* UITableViewForecast.swift */,
 			);
 			path = views;
 			sourceTree = "<group>";
@@ -544,6 +558,7 @@
 				25B6F6F32BAAA327007C71FB /* SceneDelegate.swift in Sources */,
 				2592D2712BB02E7200650B28 /* CLLocationManager.swift in Sources */,
 				25B6F73B2BAAD3CD007C71FB /* Weather.swift in Sources */,
+				2503712C2BB1FA5000EF9C1F /* UITableViewForecast.swift in Sources */,
 				25B6F7342BAAB0DB007C71FB /* HTTPMethod.swift in Sources */,
 				2592D2892BB1B9D900650B28 /* UIColor.swift in Sources */,
 				2592D26E2BB02A5000650B28 /* LocationService.swift in Sources */,
@@ -556,6 +571,7 @@
 				2503712A2BB1F87D00EF9C1F /* WeatherForecastDay.swift in Sources */,
 				25B6F72B2BAAAD22007C71FB /* UtilsWeatherUrlMaker.swift in Sources */,
 				2592D2842BB1ABEE00650B28 /* UILabel.swift in Sources */,
+				2503712F2BB1FE1300EF9C1F /* UITableViewCellDay.swift in Sources */,
 				2592D2732BB0353100650B28 /* LocationServiceDelegate.swift in Sources */,
 				25B6F7402BAAD459007C71FB /* WeatherAir.swift in Sources */,
 				25B6F7452BAAD904007C71FB /* DispatchQueue.swift in Sources */,

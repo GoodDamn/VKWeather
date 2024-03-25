@@ -20,6 +20,8 @@ final class ViewController
     private var mLabelImageHumidity: UILabelImage!
     private var mLabelImagePressure: UILabelImage!
     
+    private var mTableForecast: UITableViewForecast!
+    
     private let mWeatherService =
         WeatherService()
     
@@ -96,6 +98,17 @@ final class ViewController
             )
         )
         
+        mTableForecast = UITableViewForecast(
+            frame: CGRect(
+                x: marginLeft,
+                y: mLabelImagePressure
+                    .ybottom(),
+                width: w - marginLeft*2,
+                height: h - mLabelImagePressure
+                    .ybottom()
+            )
+        )
+        
         mLabelTemp
             .defaultFont()
         
@@ -144,6 +157,8 @@ final class ViewController
             .accent()
         )
         
+        mTableForecast.backgroundColor = .systemPink
+        
         view.addSubview(
             mLabelTemp
         )
@@ -166,6 +181,10 @@ final class ViewController
         
         view.addSubview(
             mLabelImagePressure
+        )
+        
+        view.addSubview(
+            mTableForecast
         )
         
         mWeatherService.delegate = self
@@ -253,7 +272,8 @@ extension ViewController
     func onForecastWeather(
         forecastModel: [WeatherForecastDay]
     ) {
-        
+        mTableForecast.forecastDays =
+            forecastModel
     }
     
     
