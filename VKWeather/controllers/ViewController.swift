@@ -23,6 +23,9 @@ final class ViewController
     private let mWeatherService =
         WeatherService()
     
+    private let mWeatherForecastService =
+        WeatherForecastService()
+    
     private let mLocationService =
         LocationService()
     
@@ -190,6 +193,11 @@ extension ViewController
         mWeatherService.start(
             lat: lat,
             long: long
+        )
+        
+        mWeatherForecastService.start(
+            lat: lat,
+            lon: long
         )
     }
     

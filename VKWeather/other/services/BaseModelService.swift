@@ -28,6 +28,11 @@ public class BaseModelService <
         )
     }
     
+    
+    internal func onGetModelBackground(
+        model: MODEL?
+    ) {}
+    
     // Executes on background thread
     private final func onCompletionData(
         data: Data
@@ -52,9 +57,5 @@ public class BaseModelService <
             )
         }
     }
-    
-    internal func onGetModelBackground(
-        model: MODEL?
-    ) {}
     
 }

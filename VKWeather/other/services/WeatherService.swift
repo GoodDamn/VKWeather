@@ -8,7 +8,7 @@
 import Foundation
 
 final public class WeatherService
-    : BaseModelService<WeatherInfo> {
+    : BaseModelService<WeatherInfoCity> {
     
     private static let mUrlApiWeather = "https://api.openweathermap.org/data/2.5/weather"
     
@@ -33,7 +33,7 @@ final public class WeatherService
     
     // Executes on background thread
     final override func onGetModelBackground(
-        model: WeatherInfo?
+        model: WeatherInfoCity?
     ) {
         DispatchQueue.ui { [weak self] in
             
