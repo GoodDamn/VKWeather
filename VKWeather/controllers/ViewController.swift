@@ -16,6 +16,7 @@ final class ViewController
     private var mLabelTemp: UILabel!
     private var mLabelCity: UILabel!
     private var mLabelTempMaxMin: UILabel!
+    private var mLabelWeatherState: UILabel!
     
     private let mWeatherService =
         WeatherService()
@@ -42,10 +43,20 @@ final class ViewController
                 height: w * 0.12)
         )
         
+        mLabelWeatherState = UILabel(
+            frame: CGRect(
+                x: marginLeft,
+                y: mLabelTemp.ybottom(),
+                width: w,
+                height: w * 0.03
+            )
+        )
+        
         mLabelCity = UILabel(
             frame: CGRect(
                 x: marginLeft,
-                y: h*0.17,
+                y: mLabelWeatherState
+                    .ybottom() + h * 0.1,
                 width: w,
                 height: w * 0.05
             )
@@ -54,16 +65,23 @@ final class ViewController
         mLabelTempMaxMin = UILabel(
             frame: CGRect(
                 x: marginLeft,
-                y: mLabelCity.ybottom() * 1.2,
+                y: mLabelCity.ybottom() * 1.01,
                 width: w,
                 height: w * 0.04
             )
         )
         
+        
         mLabelTemp.font = UIFont.systemFont(
             ofSize: mLabelTemp
                 .height()
         )
+        
+        mLabelWeatherState.font = UIFont
+            .systemFont(
+                ofSize: mLabelWeatherState
+                    .height()
+            )
         
         mLabelCity.font = UIFont.systemFont(
             ofSize: mLabelCity
@@ -78,7 +96,10 @@ final class ViewController
         mLabelTemp.text = "-"
         mLabelTemp.textColor = .black
         
-        mLabelCity.text = "Not your city"
+        mLabelWeatherState.text = "----"
+        mLabelWeatherState.textColor = .black
+        
+        mLabelCity.text = "Your city"
         mLabelCity.textColor = .black
         
         mLabelTempMaxMin.text = "--/--"
@@ -86,6 +107,10 @@ final class ViewController
         
         view.addSubview(
             mLabelTemp
+        )
+        
+        view.addSubview(
+            mLabelWeatherState
         )
         
         view.addSubview(
@@ -132,9 +157,7 @@ extension ViewController
     func onGetWeather(
         model: Weather?
     ) {
-        guard let model = model else {
-            return
-        }
+        mLabelWeatherState.text = model?.main
     }
     
     func onGetCityInfo(
