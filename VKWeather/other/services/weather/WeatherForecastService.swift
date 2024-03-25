@@ -46,12 +46,7 @@ final public class WeatherForecastService
         var i = 0
         
         for info in model.list {
-            days.append(
-                WeatherForecastDay(
-                    date: <#T##Date#>,
-                    info: model.list
-                )
-            )
+            
         }
         
         DispatchQueue.ui { [weak self] in
