@@ -35,5 +35,28 @@ final public class WeatherForecastService
         model: WeatherForecast?
     ) {
         
+        guard let model = model else {
+            return
+        }
+        
+        var days: [WeatherForecastDay] = []
+        
+        // timestamps in day (per 3 hours)
+        let interval = 8
+        var i = 0
+        
+        for info in model.list {
+            days.append(
+                WeatherForecastDay(
+                    date: <#T##Date#>,
+                    info: model.list
+                )
+            )
+        }
+        
+        DispatchQueue.ui { [weak self] in
+            
+            
+        }
     }
 }
