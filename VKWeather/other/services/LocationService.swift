@@ -38,7 +38,7 @@ extension LocationService
     ) {
         print("LocationManager: didChangeAuth");
         
-        let status = manager.authorizationStatus
+        let status = manager.authStatus()
         
         if !(status == .authorizedAlways ||
             status == .authorizedWhenInUse) {
