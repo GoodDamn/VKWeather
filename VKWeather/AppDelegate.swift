@@ -23,37 +23,37 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         loadImage(
             id: "01",
-            image: "sun.max.fill"
+            image: "sun.max"
         )
         
         loadImage(
             id: "02",
-            image: "cloud.sun.fill"
+            image: "cloud.sun"
         )
         
         loadImage(
             id: "03",
-            image: "cloud.fill"
+            image: "cloud"
         )
         
         loadImage(
             id: "04",
-            image: "cloud.fill"
+            image: "cloud"
         )
         
         loadImage(
             id: "10",
-            image: "cloud.rain.fill"
+            image: "cloud.rain"
         )
         
         loadImage(
             id: "11",
-            image: "cloud.bolt.rain.fill"
+            image: "cloud.bolt.rain"
         )
         
         loadImage(
             id: "50",
-            image: "cloud.fog.fill"
+            image: "cloud.fog"
         )
         
         return true
