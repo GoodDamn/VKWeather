@@ -67,7 +67,7 @@ final public class UICollectionViewCellWeather
     public override func layoutSubviews() {
         super.layoutSubviews()
         
-        let fontSize = width() * 0.3
+        let fontSize = width() * 0.18
         
         mLabelHour.frame(
             x: 0,

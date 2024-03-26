@@ -93,7 +93,7 @@ final public class UITableViewCellDay
         
         mLabelDate.size(
             width: width(),
-            height: width() * 0.1
+            height: width() * 0.07
         )
         
         mLabelDate.fontSizeEqualsHeight()
@@ -113,6 +113,8 @@ final public class UITableViewCellDay
         mLabelDate.textColor = .black
         mLabelDate.backgroundColor =
             .clear
+        
+        mLabelDate.textAlignment = .center
         
         mCollectionForecast.backgroundColor =
             .clear

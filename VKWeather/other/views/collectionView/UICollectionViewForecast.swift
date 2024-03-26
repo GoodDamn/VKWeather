@@ -63,9 +63,10 @@ extension UICollectionViewForecast
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
+        let h = height() * 0.9
         return CGSize(
-            width: width() * 0.2,
-            height: width() * 0.5
+            width: h * 0.5,
+            height: h
         )
     }
     
