@@ -24,6 +24,7 @@ final public class UITableViewForecast
             frame: frame,
             style: .plain)
         
+        delegate = self
         dataSource = self
         
         register(

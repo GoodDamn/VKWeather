@@ -12,23 +12,48 @@ final public class UITableViewCellDay
     
     public static let id = "dayCell"
     
-    private lazy var mLabelDate: UILabel = {
-        
+    private let mLabelDate: UILabel!
+    
+    public override init(
+        style: UITableViewCell.CellStyle,
+        reuseIdentifier: String?
+    ) {
+        mLabelDate = UILabel()
+        super.init(
+            style: style,
+            reuseIdentifier: reuseIdentifier
+        )
+        ini()
+    }
+    
+    public required init?(
+        coder: NSCoder
+    ) {
+        mLabelDate = UILabel()
+        super.init(
+            coder: coder
+        )
+        ini()
+    }
+    
+    public override func layoutSubviews() {
+        super.layoutSubviews()
         print(
             UITableViewCellDay.self,
-            "Lazy init:",
-            frame.width
+            "layoutSubviews",
+            frame
         )
         
-        let label = UILabel(
-            frame: CGRect(
-                x: 0,
-                y: 0,
-                width: frame.width,
-                height: frame.height * 0.2
-            )
+        mLabelDate.size(
+            width: frame.width,
+            height: frame.width * 0.1
         )
         
+        mLabelDate
+            .defaultFont()
+    }
+    
+    private func ini() {
         mLabelDate.text = "Some date"
         mLabelDate.textColor = .white
         mLabelDate.backgroundColor = .gray
@@ -36,36 +61,7 @@ final public class UITableViewCellDay
         contentView.addSubview(
             mLabelDate
         )
-        
-        return label
-    }()
-    
-    public override init(
-        style: UITableViewCell.CellStyle,
-        reuseIdentifier: String?
-    ) {
-        
-        super.init(
-            style: style,
-            reuseIdentifier: reuseIdentifier
-        )
-        print(
-            UITableViewCellDay.self,
-            "init:",
-            frame.width
-        )
-    }
-    
-    public required init?(
-        coder: NSCoder
-    ) {
-        super.init(
-            coder: coder
-        )
-    }
-    
-    public final override func layoutSubviews() {
-        
+        backgroundColor = .red
     }
     
 }

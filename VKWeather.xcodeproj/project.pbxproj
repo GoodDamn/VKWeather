@@ -211,7 +211,6 @@
 		2592D2762BB0431900650B28 /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				2592D2852BB1B3A200650B28 /* coreGraphics */,
 				2592D2792BB19EFE00650B28 /* UIView.swift */,
 				2592D2832BB1ABEE00650B28 /* UILabel.swift */,
 				2592D2882BB1B9D800650B28 /* UIColor.swift */,
@@ -410,6 +409,7 @@
 		25B6F7432BAAD8F6007C71FB /* Foundation */ = {
 			isa = PBXGroup;
 			children = (
+				2592D2852BB1B3A200650B28 /* coreGraphics */,
 				25B6F7442BAAD904007C71FB /* DispatchQueue.swift */,
 				2592D27D2BB1A08000650B28 /* Float.swift */,
 			);
