@@ -21,14 +21,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         ]?
     ) -> Bool {
         
-        loadImage(
+        loadImageTheme(
             id: "01",
-            image: "sun.max"
+            imageDay: "sun.max",
+            imageNight: "moon"
         )
         
-        loadImage(
+        loadImageTheme(
             id: "02",
-            image: "cloud.sun"
+            imageDay: "cloud.sun",
+            imageNight: "cloud.moon"
         )
         
         loadImage(
@@ -41,14 +43,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             image: "cloud"
         )
         
-        loadImage(
+        loadImageTheme(
             id: "10",
-            image: "cloud.rain"
+            imageDay: "cloud.rain",
+            imageNight: "cloud.moon.rain"
         )
         
-        loadImage(
+        loadImageTheme(
             id: "11",
-            image: "cloud.bolt.rain"
+            imageDay: "cloud.bolt.rain",
+            imageNight: "cloud.moon.bolt"
         )
         
         loadImage(
