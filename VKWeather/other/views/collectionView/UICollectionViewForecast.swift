@@ -31,6 +31,13 @@ final public class UICollectionViewForecast
         
         dataSource = self
         
+        register(
+            UICollectionViewCellWeather.self,
+            forCellWithReuseIdentifier:
+                UICollectionViewCellWeather
+                    .id
+        )
+        
     }
     
     public required init?(
@@ -43,7 +50,7 @@ final public class UICollectionViewForecast
     
     public override func layoutSubviews() {
         super.layoutSubviews()
-        mCellSize.width = frame.width * 0.1
+        mCellSize.width = width() * 0.1
         mCellSize.height = mCellSize.width * 1.3
     }
 }
@@ -70,8 +77,22 @@ extension UICollectionViewForecast
         _ collectionView: UICollectionView,
         cellForItemAt indexPath: IndexPath
     ) -> UICollectionViewCell {
-        let cell = UICollectionViewCell()
-        cell.backgroundColor = .red
+        
+        guard let cell = collectionView
+            .dequeueReusableCell(
+                withReuseIdentifier:
+                    UICollectionViewCellWeather
+                        .id,
+                for: indexPath
+            ) as? UICollectionViewCellWeather else {
+                return UICollectionViewCell()
+            }
+        
+        let index = indexPath.row
+        guard let model = forecast?[index] else {
+            return UICollectionViewCell()
+        }
+        
         return cell
     }
     
