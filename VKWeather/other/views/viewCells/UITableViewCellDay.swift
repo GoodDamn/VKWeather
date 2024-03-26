@@ -77,8 +77,7 @@ final public class UITableViewCellDay
             height: frame.width * 0.1
         )
         
-        mLabelDate
-            .defaultFont()
+        mLabelDate.fontSizeEqualsHeight()
     }
     
     private func ini() {

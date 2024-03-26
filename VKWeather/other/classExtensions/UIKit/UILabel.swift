@@ -15,4 +15,10 @@ extension UILabel {
         )
     }
     
+    func fontSizeEqualsHeight() {
+        font = font.withSize(
+            height()
+        )
+    }
+    
 }
