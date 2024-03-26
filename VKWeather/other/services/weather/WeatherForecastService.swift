@@ -41,17 +41,49 @@ final public class WeatherForecastService
         
         var days: [WeatherForecastDay] = []
         
+        var infoPerDay: [WeatherInfo] = []
+        
         // timestamps in day (per 3 hours)
         let interval = 8
         var i = 0
         
+        infoPerDay.reserveCapacity(
+            interval
+        )
+        
         for info in model.list {
+            i += 1
+            if i == interval {
+                let date = Date(
+                    timeIntervalSince1970:
+                        TimeInterval(
+                            infoPerDay[0]
+                                .dt
+                        )
+                )
+                
+                days.append(
+                    WeatherForecastDay(
+                        date: date,
+                        info: infoPerDay
+                    )
+                )
+                i = 0
+                infoPerDay.removeAll(
+                    keepingCapacity: true
+                )
+                continue
+            }
             
+            infoPerDay.append(
+                info
+            )
         }
         
         DispatchQueue.ui { [weak self] in
-            
-            
+            self?.delegate?.onForecastWeather(
+                forecastModel: days
+            )
         }
     }
 }
