@@ -13,6 +13,7 @@ final public class UICollectionViewCellWeather
     public static let id = "weatherCell"
     
     private let mLabelHour: UILabel!
+    private let mLabelTemp: UILabel!
     
     public final var hour: Int? {
         didSet {
@@ -23,10 +24,20 @@ final public class UICollectionViewCellWeather
         }
     }
     
+    public final var temperature: Int? {
+        didSet {
+            if temperature == nil {
+                return
+            }
+            mLabelTemp.text = "\(temperature) °C"
+        }
+    }
+    
     public override init(
         frame: CGRect
     ) {
         mLabelHour = UILabel()
+        mLabelTemp = UILabel()
         super.init(
             frame: frame
         )
@@ -37,6 +48,7 @@ final public class UICollectionViewCellWeather
         coder: NSCoder
     ) {
         mLabelHour = UILabel()
+        mLabelTemp = UILabel()
         super.init(
             coder: coder
         )
@@ -45,22 +57,43 @@ final public class UICollectionViewCellWeather
     
     public override func layoutSubviews() {
         super.layoutSubviews()
+        
+        let fontSize = width() * 0.3
+        
         mLabelHour.frame(
             x: 0,
             y: 0,
             width: width(),
-            height: width() * 0.3
+            height: fontSize
         )
         
         mLabelHour.fontSizeEqualsHeight()
+    
+        mLabelTemp.frame(
+            x: 0,
+            y: height() - fontSize - height() * 0.1,
+            width: width(),
+            height: fontSize
+        )
+        
+        mLabelTemp.fontSizeEqualsHeight()
+    
+        
     }
     
     private final func ini() {
         mLabelHour.textColor = .black
         mLabelHour.textAlignment = .center
         
+        mLabelTemp.textColor = .black
+        mLabelTemp.textAlignment = .center
+        
         contentView.addSubview(
             mLabelHour
+        )
+        
+        contentView.addSubview(
+            mLabelTemp
         )
     }
 }
