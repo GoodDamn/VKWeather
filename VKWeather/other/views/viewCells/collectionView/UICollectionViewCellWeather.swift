@@ -14,6 +14,7 @@ final public class UICollectionViewCellWeather
     
     private let mLabelHour: UILabel!
     private let mLabelTemp: UILabel!
+    private let mImageWeather: UIImageView!
     
     public final var hour: Int? {
         didSet {
@@ -33,11 +34,18 @@ final public class UICollectionViewCellWeather
         }
     }
     
+    public final var image: UIImage? {
+        didSet {
+            mImageWeather.image = image
+        }
+    }
+    
     public override init(
         frame: CGRect
     ) {
         mLabelHour = UILabel()
         mLabelTemp = UILabel()
+        mImageWeather = UIImageView()
         super.init(
             frame: frame
         )
@@ -49,6 +57,7 @@ final public class UICollectionViewCellWeather
     ) {
         mLabelHour = UILabel()
         mLabelTemp = UILabel()
+        mImageWeather = UIImageView()
         super.init(
             coder: coder
         )
@@ -78,6 +87,12 @@ final public class UICollectionViewCellWeather
         
         mLabelTemp.fontSizeEqualsHeight()
     
+        mImageWeather.frame(
+            x: 0,
+            y: mLabelHour.ybottom(),
+            width: width(),
+            height: mLabelTemp.y() - mLabelHour.ybottom()
+        )
         
     }
     
@@ -88,8 +103,14 @@ final public class UICollectionViewCellWeather
         mLabelTemp.textColor = .black
         mLabelTemp.textAlignment = .center
         
+        mImageWeather.backgroundColor = .red
+        
         contentView.addSubview(
             mLabelHour
+        )
+        
+        contentView.addSubview(
+            mImageWeather
         )
         
         contentView.addSubview(
