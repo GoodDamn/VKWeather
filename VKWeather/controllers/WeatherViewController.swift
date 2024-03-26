@@ -187,10 +187,32 @@ final class WeatherViewController
             mBtnForecast
         )
         
+        mBtnForecast.addTarget(
+            self,
+            action: #selector(
+                onClickBtnForecast(_:)
+            ),
+            for: .touchUpInside
+        )
+        
         mWeatherService.delegate = self
         mLocationService.delegate = self
         
         mLocationService.start()
+    }
+    
+}
+
+extension WeatherViewController {
+    
+    @objc private final func onClickBtnForecast(
+        _ sender: UIButton
+    ) {
+        let forecastVc = ForecastViewController()
+        present(
+            forecastVc,
+            animated: true
+        )
     }
     
 }
