@@ -17,6 +17,7 @@ final class WeatherViewController
     private var mLabelWeatherState: UILabel!
     private var mLabelImageHumidity: UILabelImage!
     private var mLabelImagePressure: UILabelImage!
+    private var mBtnForecast: UIButton!
     
     private let mWeatherService =
         WeatherService()
@@ -91,7 +92,14 @@ final class WeatherViewController
             )
         )
         
-        
+        mBtnForecast = UIButton(
+            frame: CGRect(
+                x: 0,
+                y: h * 0.9,
+                width: w,
+                height: h * 0.1
+            )
+        )
         
         mLabelTemp
             .defaultFont()
@@ -141,6 +149,15 @@ final class WeatherViewController
             .accent()
         )
         
+        mBtnForecast.setTitle(
+            "See 5 days forecast",
+            for: .normal
+        )
+        
+        mBtnForecast.setTitleColor(
+            .accent(),
+            for: .normal
+        )
         
         view.addSubview(
             mLabelTemp
@@ -164,6 +181,10 @@ final class WeatherViewController
         
         view.addSubview(
             mLabelImagePressure
+        )
+        
+        view.addSubview(
+            mBtnForecast
         )
         
         mWeatherService.delegate = self
