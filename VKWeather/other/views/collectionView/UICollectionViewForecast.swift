@@ -97,6 +97,10 @@ extension UICollectionViewForecast
             timeSince1970: model?.dt
         )
         
+        cell.temperature = model?
+            .main.temp
+            .celius()
+        
         return cell
     }
     

@@ -29,7 +29,7 @@ final public class UICollectionViewCellWeather
             if temperature == nil {
                 return
             }
-            mLabelTemp.text = "\(temperature) °C"
+            mLabelTemp.text = "\(temperature!) °C"
         }
     }
     
