@@ -96,6 +96,8 @@ final public class UITableViewCellDay
             height: width() * 0.1
         )
         
+        mLabelDate.fontSizeEqualsHeight()
+        
         mCollectionForecast.frame(
             x: 0,
             y: mLabelDate.ybottom(),
@@ -104,15 +106,22 @@ final public class UITableViewCellDay
                 .ybottom()
         )
         
-        mLabelDate.fontSizeEqualsHeight()
     }
     
     private func ini() {
         mLabelDate.text = "Some date"
         mLabelDate.textColor = .black
+        mLabelDate.backgroundColor =
+            .clear
         
         mCollectionForecast.backgroundColor =
             .clear
+        
+        mCollectionForecast
+            .showsHorizontalScrollIndicator = false
+        
+        mCollectionForecast
+            .showsVerticalScrollIndicator = false
         
         contentView.addSubview(
             mLabelDate
