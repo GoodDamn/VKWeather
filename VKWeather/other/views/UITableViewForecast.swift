@@ -64,11 +64,12 @@ extension UITableViewForecast
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
+        let count = forecastDays?.count ?? 0
         print(
             UITableViewForecast.self,
             "numberOfRowsInSection",
-            forecastDays?.count)
-        return forecastDays?.count ?? 0
+            count)
+        return count
     }
     
     public func tableView(

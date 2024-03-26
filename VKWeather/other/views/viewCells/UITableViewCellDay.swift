@@ -82,8 +82,7 @@ final public class UITableViewCellDay
     
     private func ini() {
         mLabelDate.text = "Some date"
-        mLabelDate.textColor = .white
-        mLabelDate.backgroundColor = .gray
+        mLabelDate.textColor = .black
         
         contentView.addSubview(
             mLabelDate
