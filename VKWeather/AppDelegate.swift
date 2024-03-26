@@ -77,12 +77,30 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         id: String,
         image: String
     ) {
-        AppDelegate.mIconsMap[
-            id
-        ] = UIImage(
-            systemName: image
+        loadImageTheme(
+            id: id,
+            imageDay: image,
+            imageNight: image
         )
     }
 
+    private func loadImageTheme(
+        id: String,
+        imageDay: String,
+        imageNight: String
+    ) {
+        AppDelegate.mIconsMap[
+            "\(id)d"
+        ] = UIImage(
+            systemName: imageDay
+        )
+        
+        AppDelegate.mIconsMap[
+            "\(id)n"
+        ] = UIImage(
+            systemName: imageNight
+        )
+    }
+    
 }
 

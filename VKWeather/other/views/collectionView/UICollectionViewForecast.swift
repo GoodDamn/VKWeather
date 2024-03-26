@@ -93,6 +93,8 @@ extension UICollectionViewForecast
         let index = indexPath.row
         let model = forecast?[index]
         
+        
+        
         cell.hour = Calendar.hour(
             timeSince1970: model?.dt
         )
@@ -100,6 +102,16 @@ extension UICollectionViewForecast
         cell.temperature = model?
             .main.temp
             .celius()
+        
+        guard let iconId = model?
+            .weather[0]
+            .icon,
+            let image = AppDelegate
+                .mIconsMap[iconId] else {
+                return cell
+            }
+        
+        cell.image = image
         
         return cell
     }

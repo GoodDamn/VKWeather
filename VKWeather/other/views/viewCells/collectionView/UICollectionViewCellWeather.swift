@@ -103,7 +103,6 @@ final public class UICollectionViewCellWeather
         mLabelTemp.textColor = .black
         mLabelTemp.textAlignment = .center
         
-        mImageWeather.backgroundColor = .red
         
         contentView.addSubview(
             mLabelHour
