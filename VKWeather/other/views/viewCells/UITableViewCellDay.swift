@@ -11,8 +11,36 @@ final public class UITableViewCellDay
     : UITableViewCell {
     
     public static let id = "dayCell"
+    private static let mDateComps:
+        Set<Calendar.Component> = [.day, .month]
     
     private let mLabelDate: UILabel!
+    
+    public final var date: Date? {
+        didSet {
+            
+            guard let date = date else {
+                return
+            }
+            
+            let calendar = Calendar
+                .current
+            
+            let comps = calendar
+                .dateComponents(
+                    UITableViewCellDay
+                        .mDateComps,
+                    from: date
+                )
+            
+            let day = comps.day ?? -1
+            let month = comps.month ?? -1
+            
+            mLabelDate.text =
+                "\(day)/\(month)"
+        }
+    }
+    
     
     public override init(
         style: UITableViewCell.CellStyle,
@@ -61,7 +89,6 @@ final public class UITableViewCellDay
         contentView.addSubview(
             mLabelDate
         )
-        backgroundColor = .red
     }
     
 }

@@ -80,10 +80,16 @@ extension UITableViewForecast
                 withIdentifier: UITableViewCellDay
                     .id
             ) as? UITableViewCellDay else {
-                let c = UITableViewCell()
-                c.backgroundColor = .red
-                return c
+                return UITableViewCell()
             }
+        
+        let index = indexPath.row
+        
+        guard let model = forecastDays?[index] else {
+            return UITableViewCell()
+        }
+        
+        cell.date = model.date
         
         return cell
     }
