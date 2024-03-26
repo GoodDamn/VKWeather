@@ -44,12 +44,29 @@ final public class UITableViewForecast
 }
 
 extension UITableViewForecast
+    : UITableViewDelegate {
+    
+    public func tableView(
+        _ tableView: UITableView,
+        heightForRowAt indexPath: IndexPath
+    ) -> CGFloat {
+        return 207.0
+    }
+    
+}
+
+extension UITableViewForecast
     : UITableViewDataSource {
+    
     
     public func tableView(
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
+        print(
+            UITableViewForecast.self,
+            "numberOfRowsInSection",
+            forecastDays?.count)
         return forecastDays?.count ?? 0
     }
     

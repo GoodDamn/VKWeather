@@ -10,8 +10,6 @@ import UIKit
 final class ViewController
     : UIViewController {
     
-    private static let TAG = "ViewController:"
-    
     // Strong refs
     private var mLabelTemp: UILabel!
     private var mLabelCity: UILabel!
@@ -204,7 +202,7 @@ extension ViewController
         long: Float
     ) {
         print(
-            ViewController.TAG,
+            ViewController.self,
             "onGetLocation:",
             lat,
             long

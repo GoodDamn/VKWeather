@@ -36,7 +36,10 @@ extension LocationService
     public func locationManagerDidChangeAuthorization(
         _ manager: CLLocationManager
     ) {
-        print("LocationManager: didChangeAuth");
+        print(
+            LocationService.self,
+            "didChangeAuth"
+        )
         
         let status = manager.authStatus()
         

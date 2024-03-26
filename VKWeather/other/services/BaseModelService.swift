@@ -16,7 +16,7 @@ public class BaseModelService <
     ) {
         guard let url = url else {
             print(
-                "BaseModelService:",
+                BaseModelService.self,
                 "URL_MAKER_ERROR"
             )
             return
@@ -48,7 +48,7 @@ public class BaseModelService <
             )
         } catch {
             print(
-                "BaseModelService:",
+                BaseModelService.self,
                 "Unable to decode WeatherInfo JSON",
                 error
             )

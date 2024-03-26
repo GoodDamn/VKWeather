@@ -10,11 +10,15 @@ import UIKit
 final public class UITableViewCellDay
     : UITableViewCell {
     
-    private static let TAG = "UITableViewCellDay"
-    
     public static let id = "dayCell"
     
     private lazy var mLabelDate: UILabel = {
+        
+        print(
+            UITableViewCellDay.self,
+            "Lazy init:",
+            frame.width
+        )
         
         let label = UILabel(
             frame: CGRect(
@@ -40,9 +44,15 @@ final public class UITableViewCellDay
         style: UITableViewCell.CellStyle,
         reuseIdentifier: String?
     ) {
+        
         super.init(
             style: style,
             reuseIdentifier: reuseIdentifier
+        )
+        print(
+            UITableViewCellDay.self,
+            "init:",
+            frame.width
         )
     }
     
@@ -52,6 +62,10 @@ final public class UITableViewCellDay
         super.init(
             coder: coder
         )
+    }
+    
+    public final override func layoutSubviews() {
+        
     }
     
 }
