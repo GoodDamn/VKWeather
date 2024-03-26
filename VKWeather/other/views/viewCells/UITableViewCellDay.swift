@@ -15,10 +15,11 @@ final public class UITableViewCellDay
         Set<Calendar.Component> = [.day, .month]
     
     private let mLabelDate: UILabel!
+    private let mCollectionForecast:
+        UICollectionViewForecast!
     
     public final var date: Date? {
         didSet {
-            
             guard let date = date else {
                 return
             }
@@ -41,12 +42,27 @@ final public class UITableViewCellDay
         }
     }
     
+    public final var forecast: [WeatherInfo]? {
+        set(val) {
+            mCollectionForecast
+                .forecast = val
+        }
+        
+        get {
+            return mCollectionForecast
+                .forecast
+        }
+    }
     
     public override init(
         style: UITableViewCell.CellStyle,
         reuseIdentifier: String?
     ) {
         mLabelDate = UILabel()
+        mCollectionForecast =
+            UICollectionViewForecast(
+                frame: .zero
+            )
         super.init(
             style: style,
             reuseIdentifier: reuseIdentifier
@@ -58,6 +74,9 @@ final public class UITableViewCellDay
         coder: NSCoder
     ) {
         mLabelDate = UILabel()
+        mCollectionForecast = UICollectionViewForecast(
+                frame: .zero
+            )
         super.init(
             coder: coder
         )
@@ -84,8 +103,15 @@ final public class UITableViewCellDay
         mLabelDate.text = "Some date"
         mLabelDate.textColor = .black
         
+        mCollectionForecast.backgroundColor =
+            .brown
+        
         contentView.addSubview(
             mLabelDate
+        )
+        
+        contentView.addSubview(
+            mCollectionForecast
         )
     }
     
