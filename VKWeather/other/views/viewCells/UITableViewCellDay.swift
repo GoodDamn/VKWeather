@@ -92,8 +92,16 @@ final public class UITableViewCellDay
         )
         
         mLabelDate.size(
-            width: frame.width,
-            height: frame.width * 0.1
+            width: width(),
+            height: width() * 0.1
+        )
+        
+        mCollectionForecast.frame(
+            x: 0,
+            y: mLabelDate.ybottom(),
+            width: width(),
+            height: height() - mLabelDate
+                .ybottom()
         )
         
         mLabelDate.fontSizeEqualsHeight()
