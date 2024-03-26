@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class ViewController
+final class WeatherViewController
     : UIViewController {
     
     // Strong refs
@@ -18,13 +18,8 @@ final class ViewController
     private var mLabelImageHumidity: UILabelImage!
     private var mLabelImagePressure: UILabelImage!
     
-    private var mTableForecast: UITableViewForecast!
-    
     private let mWeatherService =
         WeatherService()
-    
-    private let mWeatherForecastService =
-        WeatherForecastService()
     
     private let mLocationService =
         LocationService()
@@ -96,16 +91,7 @@ final class ViewController
             )
         )
         
-        mTableForecast = UITableViewForecast(
-            frame: CGRect(
-                x: marginLeft,
-                y: mLabelImagePressure
-                    .ybottom(),
-                width: w - marginLeft*2,
-                height: h - mLabelImagePressure
-                    .ybottom()
-            )
-        )
+        
         
         mLabelTemp
             .defaultFont()
@@ -155,11 +141,6 @@ final class ViewController
             .accent()
         )
         
-        mTableForecast.backgroundColor = .clear
-        mTableForecast
-            .showsVerticalScrollIndicator = false
-        mTableForecast
-            .showsHorizontalScrollIndicator = false
         
         view.addSubview(
             mLabelTemp
@@ -185,12 +166,7 @@ final class ViewController
             mLabelImagePressure
         )
         
-        view.addSubview(
-            mTableForecast
-        )
-        
         mWeatherService.delegate = self
-        mWeatherForecastService.delegate = self
         mLocationService.delegate = self
         
         mLocationService.start()
@@ -198,7 +174,7 @@ final class ViewController
     
 }
 
-extension ViewController
+extension WeatherViewController
     : LocationServiceDelegate {
     
     func onGetLocation(
@@ -206,7 +182,7 @@ extension ViewController
         long: Float
     ) {
         print(
-            ViewController.self,
+            WeatherViewController.self,
             "onGetLocation:",
             lat,
             long
@@ -217,15 +193,11 @@ extension ViewController
             long: long
         )
         
-        mWeatherForecastService.start(
-            lat: lat,
-            lon: long
-        )
     }
     
 }
 
-extension ViewController
+extension WeatherViewController
     : WeatherServiceDelegate {
     
     func onGetWeather(
@@ -265,18 +237,5 @@ extension ViewController
         mLabelImagePressure
             .renderImageText()
     }
-    
-}
-
-extension ViewController
-    : WeatherForecastDelegate {
-    
-    func onForecastWeather(
-        forecastModel: [WeatherForecastDay]
-    ) {
-        mTableForecast.forecastDays =
-            forecastModel
-    }
-    
     
 }

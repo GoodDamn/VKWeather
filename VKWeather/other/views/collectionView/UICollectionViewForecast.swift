@@ -93,8 +93,6 @@ extension UICollectionViewForecast
         let index = indexPath.row
         let model = forecast?[index]
         
-        
-        
         cell.hour = Calendar.hour(
             timeSince1970: model?.dt
         )
