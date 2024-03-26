@@ -14,6 +14,15 @@ final public class UICollectionViewCellWeather
     
     private let mLabelHour: UILabel!
     
+    public final var hour: Int? {
+        didSet {
+            if hour == nil {
+                return
+            }
+            mLabelHour.text = "\(hour!):00"
+        }
+    }
+    
     public override init(
         frame: CGRect
     ) {

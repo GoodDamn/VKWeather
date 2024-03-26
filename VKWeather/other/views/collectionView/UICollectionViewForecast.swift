@@ -89,9 +89,11 @@ extension UICollectionViewForecast
             }
         
         let index = indexPath.row
-        guard let model = forecast?[index] else {
-            return UICollectionViewCell()
-        }
+        let model = forecast?[index]
+        
+        cell.hour = Calendar.hour(
+            timeSince1970: model?.dt
+        )
         
         return cell
     }

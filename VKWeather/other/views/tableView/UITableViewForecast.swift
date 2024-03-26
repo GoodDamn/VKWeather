@@ -91,6 +91,7 @@ extension UITableViewForecast
         }
         
         cell.date = model.date
+        cell.forecast = model.info
         
         return cell
     }
