@@ -30,6 +30,7 @@ final public class UICollectionViewCellWeather
         super.init(
             frame: frame
         )
+        ini()
     }
         
     public required init?(
@@ -39,6 +40,7 @@ final public class UICollectionViewCellWeather
         super.init(
             coder: coder
         )
+        ini()
     }
     
     public override func layoutSubviews() {
@@ -47,15 +49,15 @@ final public class UICollectionViewCellWeather
             x: 0,
             y: 0,
             width: width(),
-            height: width() * 0.1
+            height: width() * 0.3
         )
         
         mLabelHour.fontSizeEqualsHeight()
     }
     
     private final func ini() {
-        mLabelHour.text = "..."
         mLabelHour.textColor = .black
+        mLabelHour.textAlignment = .center
         
         contentView.addSubview(
             mLabelHour

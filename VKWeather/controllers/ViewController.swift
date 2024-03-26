@@ -155,7 +155,11 @@ final class ViewController
             .accent()
         )
         
-        mTableForecast.backgroundColor = .systemPink
+        mTableForecast.backgroundColor = .clear
+        mTableForecast
+            .showsVerticalScrollIndicator = false
+        mTableForecast
+            .showsHorizontalScrollIndicator = false
         
         view.addSubview(
             mLabelTemp

@@ -112,7 +112,7 @@ final public class UITableViewCellDay
         mLabelDate.textColor = .black
         
         mCollectionForecast.backgroundColor =
-            .brown
+            .clear
         
         contentView.addSubview(
             mLabelDate

@@ -10,8 +10,6 @@ import UIKit
 final public class UICollectionViewForecast
     : UICollectionView {
     
-    private var mCellSize: CGSize = .zero
-    
     public final var forecast: [WeatherInfo]? {
         didSet {
             reloadData()
@@ -29,6 +27,7 @@ final public class UICollectionViewForecast
             collectionViewLayout: layout
         )
         
+        delegate = self
         dataSource = self
         
         register(
@@ -48,11 +47,11 @@ final public class UICollectionViewForecast
         )
     }
     
-    public override func layoutSubviews() {
-        super.layoutSubviews()
-        mCellSize.width = width() * 0.1
-        mCellSize.height = mCellSize.width * 1.3
-    }
+}
+
+extension UICollectionViewForecast
+    : UICollectionViewDelegate {
+    // for UICollectionViewDelegateFlowLayout
 }
 
 extension UICollectionViewForecast
@@ -64,7 +63,10 @@ extension UICollectionViewForecast
         layout collectionViewLayout: UICollectionViewLayout,
         sizeForItemAt indexPath: IndexPath
     ) -> CGSize {
-        return mCellSize
+        return CGSize(
+            width: width() * 0.2,
+            height: width() * 0.5
+        )
     }
     
 }

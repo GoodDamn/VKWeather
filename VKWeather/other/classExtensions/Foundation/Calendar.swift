@@ -23,8 +23,7 @@ extension Calendar {
             [.hour],
             from: date
         )
-        
-        return comps.day
+        return comps.hour
     }
     
 }
