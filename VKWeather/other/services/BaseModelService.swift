@@ -9,7 +9,16 @@ import Foundation
 
 public class BaseModelService <
     MODEL: Codable
-> {
+> : Cache {
+    
+    
+    internal override init(
+        cacheFileName: String
+    ) {
+        super.init(
+            cacheFileName: cacheFileName
+        )
+    }
     
     internal final func startService(
         url: URL?
@@ -22,9 +31,21 @@ public class BaseModelService <
             return
         }
         
+        if cacheExists(), let data = cache() {
+            DispatchQueue.global(
+                qos: .default
+            ).async { [weak self] in
+                self?.onDecodeJson(
+                    data: data
+                )
+            }
+        }
+        
         HTTPRequest.make(
             url: url,
-            completion: onCompletionData(data:)
+            completion: onCompletionDownload(
+                data:
+            )
         )
     }
     
@@ -34,7 +55,7 @@ public class BaseModelService <
     ) {}
     
     // Executes on background thread
-    private final func onCompletionData(
+    private final func onDecodeJson(
         data: Data
     ) {
         do {
@@ -56,6 +77,19 @@ public class BaseModelService <
                 model: nil
             )
         }
+    }
+    
+    // Executes on background thread
+    private final func onCompletionDownload(
+        data: Data
+    ) {
+        cache(
+            data: data
+        )
+        
+        onDecodeJson(
+            data: data
+        )
     }
     
 }
