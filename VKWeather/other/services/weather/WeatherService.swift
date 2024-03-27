@@ -19,7 +19,7 @@ final public class WeatherService
         id: Int
     ) {
         super.init(
-            cacheFileName: "\(id).json"
+            cacheFileName: "\(id)cur.json"
         )
     }
     
