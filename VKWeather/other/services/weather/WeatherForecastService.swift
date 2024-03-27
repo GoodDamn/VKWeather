@@ -14,6 +14,15 @@ final public class WeatherForecastService
     
     public final weak var delegate: WeatherForecastDelegate?
     
+    
+    init(
+        id: Int
+    ) {
+        super.init(
+            cacheFileName: "\(id)for.json"
+        )
+    }
+    
     public final func start(
         lat: Float,
         lon: Float
