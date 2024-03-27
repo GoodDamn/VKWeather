@@ -20,7 +20,9 @@ final class WeatherViewController
     private var mBtnForecast: UIButton!
     
     private let mWeatherService =
-        WeatherService()
+        WeatherService(
+            id: 3
+        )
     
     private let mLocationService =
         LocationService()
@@ -197,6 +199,8 @@ final class WeatherViewController
         
         mWeatherService.delegate = self
         mLocationService.delegate = self
+        
+        mWeatherService.loadFromCache()
         
         mLocationService.start()
     }

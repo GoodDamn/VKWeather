@@ -20,6 +20,25 @@ public class BaseModelService <
         )
     }
     
+    public final func loadFromCache() {
+        guard cacheExists(),
+              let data = cache() else {
+            print(
+                BaseModelService.self,
+                "There is no cache"
+            )
+            return
+        }
+        
+        DispatchQueue.global(
+            qos: .default
+        ).async { [weak self] in
+            self?.onDecodeJson(
+                data: data
+            )
+        }
+    }
+    
     internal final func startService(
         url: URL?
     ) {
@@ -29,16 +48,6 @@ public class BaseModelService <
                 "URL_MAKER_ERROR"
             )
             return
-        }
-        
-        if cacheExists(), let data = cache() {
-            DispatchQueue.global(
-                qos: .default
-            ).async { [weak self] in
-                self?.onDecodeJson(
-                    data: data
-                )
-            }
         }
         
         HTTPRequest.make(

@@ -13,7 +13,9 @@ final class ForecastViewController
     private var mTableForecast: UITableViewForecast!
     
     private let mWeatherForecastService =
-        WeatherForecastService()
+        WeatherForecastService(
+            id: 2
+        )
     
     private let mLocationService =
         LocationService()
