@@ -39,7 +39,6 @@ final class ForecastViewController
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        
         mLocationService
             .delegate = self
         
@@ -49,7 +48,8 @@ final class ForecastViewController
         mWeatherForecastService
             .loadFromCache()
         
-        mLocationService.start()
+        mLocationService
+            .start()
     }
     
 }
