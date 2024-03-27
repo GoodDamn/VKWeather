@@ -18,6 +18,7 @@ final class WeatherViewController
     private var mLabelImageHumidity: UILabelImage!
     private var mLabelImagePressure: UILabelImage!
     private var mBtnForecast: UIButton!
+    private var mBtnSearch: UIButton!
     
     private let mWeatherService =
         WeatherService(
@@ -29,6 +30,8 @@ final class WeatherViewController
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        view.backgroundColor = .white
         
         let screenBounds = view
             .bounds
@@ -103,6 +106,15 @@ final class WeatherViewController
             )
         )
         
+        mBtnSearch = UIButton(
+            frame: CGRect(
+                x: 0,
+                y: mBtnForecast.y() - h * 0.1,
+                width: w,
+                height: h * 0.1
+            )
+        )
+        
         mLabelTemp
             .defaultFont()
         
@@ -161,6 +173,16 @@ final class WeatherViewController
             for: .normal
         )
         
+        mBtnSearch.setTitle(
+            "Search city",
+            for: .normal
+        )
+        
+        mBtnSearch.setTitleColor(
+            .accent(),
+            for: .normal
+        )
+        
         view.addSubview(
             mLabelTemp
         )
@@ -186,7 +208,19 @@ final class WeatherViewController
         )
         
         view.addSubview(
+            mBtnSearch
+        )
+        
+        view.addSubview(
             mBtnForecast
+        )
+        
+        mBtnSearch.addTarget(
+            self,
+            action: #selector(
+                onClickBtnSearch(_:)
+            ),
+            for: .touchUpInside
         )
         
         mBtnForecast.addTarget(
@@ -218,6 +252,19 @@ extension WeatherViewController {
             forecastVc,
             animated: true
         )
+    }
+    
+    @objc private final func onClickBtnSearch(
+        _ sender: UIButton
+    ) {
+        let localSearch =
+            LocalSearchViewController()
+        
+        navigationController?
+            .pushViewController(
+                localSearch,
+                animated: true
+            )
     }
     
 }

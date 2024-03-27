@@ -14,7 +14,6 @@ final public class WeatherForecastService
     
     public final weak var delegate: WeatherForecastDelegate?
     
-    
     init(
         id: Int
     ) {

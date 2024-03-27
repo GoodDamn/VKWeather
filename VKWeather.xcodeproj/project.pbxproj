@@ -21,6 +21,8 @@
 		250371422BB33C0400EF9C1F /* ForecastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371412BB33C0400EF9C1F /* ForecastViewController.swift */; };
 		250371462BB3CB5F00EF9C1F /* Cache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371452BB3CB5F00EF9C1F /* Cache.swift */; };
 		250371482BB3CCD800EF9C1F /* URL.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371472BB3CCD800EF9C1F /* URL.swift */; };
+		2503714A2BB3D8D700EF9C1F /* LocalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371492BB3D8D700EF9C1F /* LocalSearchViewController.swift */; };
+		2503714C2BB3D9A400EF9C1F /* LocalSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503714B2BB3D9A400EF9C1F /* LocalSearchService.swift */; };
 		2592D2682BAD792200650B28 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D2672BAD792200650B28 /* WeatherService.swift */; };
 		2592D26B2BAD797700650B28 /* WeatherServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */; };
 		2592D26E2BB02A5000650B28 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26D2BB02A5000650B28 /* LocationService.swift */; };
@@ -83,6 +85,8 @@
 		250371412BB33C0400EF9C1F /* ForecastViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForecastViewController.swift; sourceTree = "<group>"; };
 		250371452BB3CB5F00EF9C1F /* Cache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cache.swift; sourceTree = "<group>"; };
 		250371472BB3CCD800EF9C1F /* URL.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URL.swift; sourceTree = "<group>"; };
+		250371492BB3D8D700EF9C1F /* LocalSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchViewController.swift; sourceTree = "<group>"; };
+		2503714B2BB3D9A400EF9C1F /* LocalSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchService.swift; sourceTree = "<group>"; };
 		2592D2672BAD792200650B28 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceDelegate.swift; sourceTree = "<group>"; };
 		2592D26D2BB02A5000650B28 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -159,12 +163,13 @@
 			path = weather;
 			sourceTree = "<group>";
 		};
-		250371262BB1F4D000EF9C1F /* location */ = {
+		250371262BB1F4D000EF9C1F /* map */ = {
 			isa = PBXGroup;
 			children = (
 				2592D26D2BB02A5000650B28 /* LocationService.swift */,
+				2503714B2BB3D9A400EF9C1F /* LocalSearchService.swift */,
 			);
-			path = location;
+			path = map;
 			sourceTree = "<group>";
 		};
 		250371272BB1F7A200EF9C1F /* weather */ = {
@@ -244,7 +249,7 @@
 		2592D2662BAD791400650B28 /* services */ = {
 			isa = PBXGroup;
 			children = (
-				250371262BB1F4D000EF9C1F /* location */,
+				250371262BB1F4D000EF9C1F /* map */,
 				250371252BB1F4BF00EF9C1F /* weather */,
 				2503711E2BB1CAF000EF9C1F /* BaseModelService.swift */,
 			);
@@ -354,6 +359,7 @@
 			children = (
 				25B6F6F42BAAA327007C71FB /* WeatherViewController.swift */,
 				250371412BB33C0400EF9C1F /* ForecastViewController.swift */,
+				250371492BB3D8D700EF9C1F /* LocalSearchViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -613,6 +619,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2503714A2BB3D8D700EF9C1F /* LocalSearchViewController.swift in Sources */,
 				2592D26B2BAD797700650B28 /* WeatherServiceDelegate.swift in Sources */,
 				2592D2872BB1B3B900650B28 /* CAGradientLayer.swift in Sources */,
 				2503711F2BB1CAF000EF9C1F /* BaseModelService.swift in Sources */,
@@ -627,6 +634,7 @@
 				250371482BB3CCD800EF9C1F /* URL.swift in Sources */,
 				25B6F73B2BAAD3CD007C71FB /* Weather.swift in Sources */,
 				2503712C2BB1FA5000EF9C1F /* UITableViewForecast.swift in Sources */,
+				2503714C2BB3D9A400EF9C1F /* LocalSearchService.swift in Sources */,
 				25B6F7342BAAB0DB007C71FB /* HTTPMethod.swift in Sources */,
 				2592D2892BB1B9D900650B28 /* UIColor.swift in Sources */,
 				2592D26E2BB02A5000650B28 /* LocationService.swift in Sources */,
