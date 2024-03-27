@@ -12,6 +12,9 @@ final public class LocalSearchViewController
     
     private var mTextField: UITextField!
     
+    private let mSearchService =
+        LocalSearchService()
+    
     public override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -24,6 +27,10 @@ final public class LocalSearchViewController
                 width: view.width(),
                 height: view.height() * 0.1
             )
+        )
+        
+        mSearchService.makeRequest(
+            query: "Russia"
         )
         
         view.addSubview(
