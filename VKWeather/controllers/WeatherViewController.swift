@@ -200,7 +200,8 @@ final class WeatherViewController
         mWeatherService.delegate = self
         mLocationService.delegate = self
         
-        mWeatherService.loadFromCache()
+        mWeatherService
+            .loadFromCache()
         
         mLocationService.start()
     }

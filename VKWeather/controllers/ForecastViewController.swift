@@ -46,6 +46,9 @@ final class ForecastViewController
         mWeatherForecastService
             .delegate = self
         
+        mWeatherForecastService
+            .loadFromCache()
+        
         mLocationService.start()
     }
     
