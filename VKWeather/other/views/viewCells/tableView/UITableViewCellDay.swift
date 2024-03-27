@@ -11,8 +11,13 @@ final public class UITableViewCellDay
     : UITableViewCell {
     
     public static let id = "dayCell"
-    private static let mDateComps:
-        Set<Calendar.Component> = [.day, .month]
+    private static let mDateFormat:
+        DateFormatter = {
+            let format = DateFormatter()
+            format.dateFormat = "dd/MM"
+            print(UITableViewCellDay.self, "DATE_FORMAT")
+            return format
+        }()
     
     private let mLabelDate: UILabel!
     private let mCollectionForecast:
@@ -24,21 +29,11 @@ final public class UITableViewCellDay
                 return
             }
             
-            let calendar = Calendar
-                .current
-            
-            let comps = calendar
-                .dateComponents(
-                    UITableViewCellDay
-                        .mDateComps,
+            mLabelDate.text = UITableViewCellDay
+                .mDateFormat
+                .string(
                     from: date
                 )
-            
-            let day = comps.day ?? -1
-            let month = comps.month ?? -1
-            
-            mLabelDate.text =
-                "\(day)/\(month)"
         }
     }
     
