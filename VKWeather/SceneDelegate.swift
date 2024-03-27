@@ -25,8 +25,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             windowScene: windowScene
         )
         
-        window?.rootViewController =
-            WeatherViewController()
+        window?.rootViewController = UINavigationController(
+            rootViewController:
+                WeatherViewController()
+        )
         window?.makeKeyAndVisible()
     }
 
