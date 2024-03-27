@@ -25,10 +25,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             windowScene: windowScene
         )
         
-        window?.rootViewController = UINavigationController(
+        let navc = UINavigationController(
             rootViewController:
                 WeatherViewController()
         )
+        
+        window?.rootViewController = navc
         window?.makeKeyAndVisible()
     }
 

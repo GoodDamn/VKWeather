@@ -23,15 +23,17 @@ final public class LocalSearchViewController
         mTextField = UITextField(
             frame: CGRect(
                 x: 0,
-                y: 0,
+                y: view.height() * 0.1,
                 width: view.width(),
                 height: view.height() * 0.1
             )
         )
         
-        mSearchService.makeRequest(
-            query: "Russia"
-        )
+        mTextField.placeholder = "Search query"
+        mTextField.delegate = self
+        mTextField.borderStyle = .roundedRect
+        mTextField.returnKeyType = .search
+        mTextField.keyboardType = .default
         
         view.addSubview(
             mTextField
@@ -40,6 +42,17 @@ final public class LocalSearchViewController
     
 }
 
-extension LocalSearchViewController {
+extension LocalSearchViewController
+    : UITextFieldDelegate {
+    
+    public func textFieldShouldReturn(
+        _ textField: UITextField
+    ) -> Bool {
+        
+        mSearchService.makeRequest(
+            query: textField.text ?? ""
+        )
+        return true
+    }
     
 }
