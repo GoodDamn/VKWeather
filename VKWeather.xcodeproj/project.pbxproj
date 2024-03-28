@@ -249,6 +249,23 @@
 			path = cache;
 			sourceTree = "<group>";
 		};
+		2503714F2BB5255400EF9C1F /* map */ = {
+			isa = PBXGroup;
+			children = (
+				2592D2722BB0353100650B28 /* LocationServiceDelegate.swift */,
+			);
+			path = map;
+			sourceTree = "<group>";
+		};
+		250371502BB5255E00EF9C1F /* weather */ = {
+			isa = PBXGroup;
+			children = (
+				2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */,
+				2503711C2BB1BEFF00EF9C1F /* WeatherForecastDelegate.swift */,
+			);
+			path = weather;
+			sourceTree = "<group>";
+		};
 		2592D2662BAD791400650B28 /* services */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,9 +279,8 @@
 		2592D2692BAD795C00650B28 /* protocols (listeners) */ = {
 			isa = PBXGroup;
 			children = (
-				2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */,
-				2592D2722BB0353100650B28 /* LocationServiceDelegate.swift */,
-				2503711C2BB1BEFF00EF9C1F /* WeatherForecastDelegate.swift */,
+				250371502BB5255E00EF9C1F /* weather */,
+				2503714F2BB5255400EF9C1F /* map */,
 			);
 			path = "protocols (listeners)";
 			sourceTree = "<group>";
