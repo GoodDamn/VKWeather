@@ -269,6 +269,14 @@
 			path = weather;
 			sourceTree = "<group>";
 		};
+		250371532BB5302100EF9C1F /* weather */ = {
+			isa = PBXGroup;
+			children = (
+				25B6F6F42BAAA327007C71FB /* WeatherViewController.swift */,
+			);
+			path = weather;
+			sourceTree = "<group>";
+		};
 		2592D2662BAD791400650B28 /* services */ = {
 			isa = PBXGroup;
 			children = (
@@ -379,7 +387,7 @@
 		25B6F7202BAAA3E2007C71FB /* controllers */ = {
 			isa = PBXGroup;
 			children = (
-				25B6F6F42BAAA327007C71FB /* WeatherViewController.swift */,
+				250371532BB5302100EF9C1F /* weather */,
 				250371412BB33C0400EF9C1F /* ForecastViewController.swift */,
 				250371492BB3D8D700EF9C1F /* LocalSearchViewController.swift */,
 			);

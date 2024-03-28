@@ -22,4 +22,19 @@ final public class UtilsWeatherUrlMaker {
         );
     }
     
+    public static func mkUrl(
+        url: String,
+        city: String
+    ) -> URL? {
+        guard let encodedCity = city.addingPercentEncoding(
+            withAllowedCharacters: .urlUserAllowed
+        ) else {
+            return nil
+        }
+        
+        return URL(
+            string: "\(url)?q=\(encodedCity)&appid=\(mApiKey)"
+        )
+    }
+    
 }
