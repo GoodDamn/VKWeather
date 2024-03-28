@@ -9,6 +9,4 @@ import Foundation
 public struct WeatherWind
     : Codable {
     let speed: Float
-    let deg: Int
-    let gust: Float
 }
