@@ -73,7 +73,7 @@ final public class WeatherService
                 model: model?.main
             )
             
-            delegate.onGetWindInfo(
+            delegate.onGetWind(
                 model: model?.wind
             )
             

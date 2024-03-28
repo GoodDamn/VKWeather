@@ -15,9 +15,16 @@ public class WeatherViewController
     private var mLabelCity: UILabel!
     private var mLabelTempMaxMin: UILabel!
     private var mLabelWeatherState: UILabel!
-    private var mLabelImageHumidity: UILabelImage!
-    private var mLabelImagePressure: UILabelImage!
+    
     private var mBtnForecast: UIButton!
+    
+    private var mLabelImageHumidity: UILabelImage!
+    
+    private var mLabelImagePressure: UILabelImage!
+    
+    private var mLabelImageWindSpeed:
+        UILabelImage!
+    
     
     internal final var mLastYPosView: CGFloat = 0
     internal final let mWeatherService =
@@ -94,6 +101,15 @@ public class WeatherViewController
             )
         )
         
+        mLabelImageWindSpeed = UILabelImage(
+            frame: CGRect(
+                x: marginLeft,
+                y: mLabelImagePressure.ybottom() + h * 0.01,
+                width: w,
+                height: w * 0.04
+            )
+        )
+        
         mBtnForecast = UIButton(
             frame: CGRect(
                 x: 0,
@@ -123,6 +139,9 @@ public class WeatherViewController
         mLabelImagePressure
             .defaultFont()
         
+        mLabelImageWindSpeed
+            .defaultFont()
+        
         mLabelTemp.text = "-"
         mLabelTemp.textColor = .black
         
@@ -149,6 +168,15 @@ public class WeatherViewController
         
         mLabelImagePressure.leftImage = UIImage(
             systemName: "cloud"
+        )?.withTintColor(
+            .accent()
+        )
+        
+        mLabelImageWindSpeed.text = " --- m/s"
+        mLabelImageWindSpeed.textColor = .black
+        
+        mLabelImageWindSpeed.leftImage = UIImage(
+            systemName: "wind"
         )?.withTintColor(
             .accent()
         )
@@ -185,6 +213,10 @@ public class WeatherViewController
         
         view.addSubview(
             mLabelImagePressure
+        )
+        
+        view.addSubview(
+            mLabelImageWindSpeed
         )
         
         view.addSubview(
@@ -239,7 +271,15 @@ extension WeatherViewController
     public func onGetWind(
         model: WeatherWind?
     ) {
-        <#code#>
+        guard let model = model else {
+            return
+        }
+        
+        mLabelImageWindSpeed.text =
+        "\(model.speed) m/s"
+        
+        mLabelImageWindSpeed
+            .renderImageText()
     }
     
     public final func onGetCityInfo(
