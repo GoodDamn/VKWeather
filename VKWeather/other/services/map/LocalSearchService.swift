@@ -15,6 +15,7 @@ final public class LocalSearchService {
     init() {
         mSearchRequest = MKLocalSearch
             .Request()
+        
     }
     
     public final func makeRequest(
@@ -22,30 +23,38 @@ final public class LocalSearchService {
     ) {
         mSearchRequest.naturalLanguageQuery =
             query
-       
+        
         MKLocalSearch(
             request: mSearchRequest
-        ).start { response, error in
-            
-            guard let response = response else {
-                print(
-                    LocalSearchService.self,
-                    "Error response:",
-                    error
-                )
-                return
-            }
-            
-            for item in response.mapItems {
-                print(
-                    LocalSearchService.self,
-                    item.name
-                )
-            }
-            
+        ).start {
+            [weak self] resp, error in
+            self?.onResponseItems(
+                response: resp,
+                error: error
+            )
         }
         
     }
     
+    private final func onResponseItems(
+        response: MKLocalSearch.Response?,
+        error: Error?
+    ) {
+        guard let response = response else {
+            print(
+                LocalSearchService.self,
+                "Error response:",
+                error
+            )
+            return
+        }
+        
+        for item in response.mapItems {
+            print(
+                LocalSearchService.self,
+                item.name
+            )
+        }
+    }
     
 }
