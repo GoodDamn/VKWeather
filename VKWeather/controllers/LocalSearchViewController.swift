@@ -91,6 +91,9 @@ final public class LocalSearchViewController
         view.addSubview(
             mTableResults
         )
+        
+        
+        mSearchService.delegate = self
     }
     
 }
@@ -118,6 +121,17 @@ extension LocalSearchViewController
             query: textField.text ?? ""
         )
         return true
+    }
+    
+}
+
+extension LocalSearchViewController
+    : LocalSearchDelegate {
+    
+    public func onSearchResults(
+        results: inout [String]
+    ) {
+        mTableResults.result = results
     }
     
 }

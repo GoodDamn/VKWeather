@@ -24,6 +24,7 @@
 		2503714A2BB3D8D700EF9C1F /* LocalSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371492BB3D8D700EF9C1F /* LocalSearchViewController.swift */; };
 		2503714C2BB3D9A400EF9C1F /* LocalSearchService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503714B2BB3D9A400EF9C1F /* LocalSearchService.swift */; };
 		2503714E2BB5203300EF9C1F /* UITableViewMapResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2503714D2BB5203300EF9C1F /* UITableViewMapResults.swift */; };
+		250371522BB525A000EF9C1F /* LocalSearchDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371512BB525A000EF9C1F /* LocalSearchDelegate.swift */; };
 		2592D2682BAD792200650B28 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D2672BAD792200650B28 /* WeatherService.swift */; };
 		2592D26B2BAD797700650B28 /* WeatherServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */; };
 		2592D26E2BB02A5000650B28 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26D2BB02A5000650B28 /* LocationService.swift */; };
@@ -89,6 +90,7 @@
 		250371492BB3D8D700EF9C1F /* LocalSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchViewController.swift; sourceTree = "<group>"; };
 		2503714B2BB3D9A400EF9C1F /* LocalSearchService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchService.swift; sourceTree = "<group>"; };
 		2503714D2BB5203300EF9C1F /* UITableViewMapResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewMapResults.swift; sourceTree = "<group>"; };
+		250371512BB525A000EF9C1F /* LocalSearchDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalSearchDelegate.swift; sourceTree = "<group>"; };
 		2592D2672BAD792200650B28 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceDelegate.swift; sourceTree = "<group>"; };
 		2592D26D2BB02A5000650B28 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -253,6 +255,7 @@
 			isa = PBXGroup;
 			children = (
 				2592D2722BB0353100650B28 /* LocationServiceDelegate.swift */,
+				250371512BB525A000EF9C1F /* LocalSearchDelegate.swift */,
 			);
 			path = map;
 			sourceTree = "<group>";
@@ -662,6 +665,7 @@
 				2503714E2BB5203300EF9C1F /* UITableViewMapResults.swift in Sources */,
 				250371372BB289DC00EF9C1F /* UICollectionViewForecast.swift in Sources */,
 				2503713B2BB2920200EF9C1F /* UICollectionViewCellWeather.swift in Sources */,
+				250371522BB525A000EF9C1F /* LocalSearchDelegate.swift in Sources */,
 				250371242BB1D74700EF9C1F /* WeatherInfoCity.swift in Sources */,
 				250371462BB3CB5F00EF9C1F /* Cache.swift in Sources */,
 				2592D27A2BB19EFE00650B28 /* UIView.swift in Sources */,

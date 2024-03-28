@@ -12,6 +12,9 @@ final public class LocalSearchService {
     
     private let mSearchRequest: MKLocalSearch.Request
     
+    public final weak var delegate:
+        LocalSearchDelegate?
+    
     init() {
         mSearchRequest = MKLocalSearch
             .Request()
@@ -49,12 +52,29 @@ final public class LocalSearchService {
             return
         }
         
+        var result: [String] = []
+        
+        result.reserveCapacity(
+            response
+                .mapItems
+                .count
+        )
+        
         for item in response.mapItems {
-            print(
-                LocalSearchService.self,
-                item.name
+            
+            guard let text = item.name else {
+                return
+            }
+            
+            result.append(
+                text
             )
+            
         }
+        
+        delegate?.onSearchResults(
+            results: &result
+        )
     }
     
 }

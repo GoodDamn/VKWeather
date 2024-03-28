@@ -6,14 +6,13 @@
 //
 
 import UIKit
-import MapKit.MKMapItem
 
 final public class UITableViewMapResults
     : UITableView {
     
     private static let mCellId = "mapCell"
     
-    public final var mapItems: [MKMapItem]? {
+    public final var result: [String]? {
         didSet {
             reloadData()
         }
@@ -58,7 +57,7 @@ extension UITableViewMapResults
         _ tableView: UITableView,
         numberOfRowsInSection section: Int
     ) -> Int {
-        return mapItems?.count ?? 0
+        return result?.count ?? 0
     }
     
     public func tableView(
@@ -75,7 +74,7 @@ extension UITableViewMapResults
             .row
         
         cell.textLabel?.text =
-            mapItems?[index].name
+            result?[index]
         
         return cell
     }
