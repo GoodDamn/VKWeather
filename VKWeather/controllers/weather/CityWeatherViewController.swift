@@ -20,6 +20,15 @@ final public class CityWeatherViewController
         )
     }
     
+    override func onForecastViewController(
+    ) -> ForecastViewController {
+        
+        let cityVc = CityForecastViewController()
+        cityVc.city = city
+        
+        return cityVc
+    }
+    
 }
 
 

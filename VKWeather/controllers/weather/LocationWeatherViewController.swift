@@ -21,6 +21,11 @@ public class LocationWeatherViewController
         
     }
     
+    override func onForecastViewController(
+    ) -> ForecastViewController {
+        return LocationForecastViewController()
+    }
+    
 }
 
 extension LocationWeatherViewController

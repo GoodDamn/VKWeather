@@ -39,6 +39,21 @@ final public class WeatherForecastService
         )
     }
     
+    public final func start(
+        city: String
+    ) {
+        let url = UtilsWeatherUrlMaker
+            .mkUrl(
+                url: WeatherForecastService
+                    .mUrlApiForecast,
+                city: city
+            )
+        
+        startService(
+            url: url
+        )
+    }
+    
     override final func onGetModelBackground(
         model: WeatherForecast?
     ) {

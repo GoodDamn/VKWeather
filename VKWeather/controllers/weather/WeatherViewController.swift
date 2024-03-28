@@ -206,6 +206,11 @@ public class WeatherViewController
         
     }
     
+    internal func onForecastViewController(
+    ) -> ForecastViewController {
+        return ForecastViewController()
+    }
+    
 }
 
 extension WeatherViewController {
@@ -213,7 +218,7 @@ extension WeatherViewController {
     @objc private final func onClickBtnForecast(
         _ sender: UIButton
     ) {
-        let forecastVc = ForecastViewController()
+        let forecastVc = onForecastViewController()
         present(
             forecastVc,
             animated: true
