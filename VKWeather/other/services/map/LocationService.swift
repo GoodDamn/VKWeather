@@ -19,13 +19,41 @@ final public class LocationService
     override init() {
         mLocationManager = CLLocationManager()
         super.init()
-        mLocationManager.delegate = self
     }
     
     
-    public final func start() {
+    public final func start() {        mLocationManager.delegate = self
+        
+        print(
+            LocationService.self,
+            "start:",
+            delegate
+        )
+        
+        if isValid() {
+            delegate?.onGetLocation(
+                lat: mLocationManager
+                    .latitude(),
+                long: mLocationManager
+                    .longtitude()
+            )
+            return
+        }
+        
         mLocationManager
             .requestWhenInUseAuthorization()
+    }
+    
+}
+
+extension LocationService {
+    
+    public final func isValid() -> Bool {
+        let status = mLocationManager
+            .authStatus()
+        
+        return status == .authorizedAlways
+            || status == .authorizedWhenInUse
     }
     
 }
@@ -36,15 +64,7 @@ extension LocationService
     public func locationManagerDidChangeAuthorization(
         _ manager: CLLocationManager
     ) {
-        print(
-            LocationService.self,
-            "didChangeAuth"
-        )
-        
-        let status = manager.authStatus()
-        
-        if !(status == .authorizedAlways ||
-            status == .authorizedWhenInUse) {
+        if !isValid() {
             return
         }
         
