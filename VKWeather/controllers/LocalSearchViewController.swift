@@ -12,6 +12,8 @@ final public class LocalSearchViewController
     
     private var mTextField: UITextField!
     private var mBtnSearch: UIButton!
+    private var mTableResults:
+        UITableViewMapResults!
     
     private let mSearchService =
         LocalSearchService()
@@ -39,6 +41,15 @@ final public class LocalSearchViewController
                 width: view.width() -
                     mTextField.xright(),
                 height: mTextField.height()
+            )
+        )
+        
+        mTableResults = UITableViewMapResults(
+            frame: CGRect(
+                x: 0,
+                y: mBtnSearch.ybottom(),
+                width: view.width(),
+                height: view.height() - mBtnSearch.ybottom()
             )
         )
         
@@ -75,6 +86,10 @@ final public class LocalSearchViewController
         
         view.addSubview(
             mBtnSearch
+        )
+        
+        view.addSubview(
+            mTableResults
         )
     }
     
