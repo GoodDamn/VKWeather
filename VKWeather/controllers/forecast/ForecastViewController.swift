@@ -7,20 +7,17 @@
 
 import UIKit
 
-final class ForecastViewController
+public class ForecastViewController
     : UIViewController {
     
-    private var mTableForecast: UITableViewForecast!
-    
-    private let mWeatherForecastService =
+    internal final let mWeatherForecastService =
         WeatherForecastService(
             id: 2
         )
     
-    private let mLocationService =
-        LocationService()
+    private var mTableForecast: UITableViewForecast!
     
-    override func loadView() {
+    public final override func loadView() {
         mTableForecast = UITableViewForecast(
             frame: .zero
         )
@@ -36,35 +33,14 @@ final class ForecastViewController
         view = mTableForecast
     }
     
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
-        
-        mLocationService
-            .delegate = self
         
         mWeatherForecastService
             .delegate = self
         
         mWeatherForecastService
             .loadFromCache()
-        
-        mLocationService
-            .start()
-    }
-    
-}
-
-extension ForecastViewController
-    : LocationServiceDelegate {
-    
-    func onGetLocation(
-        lat: Float,
-        long: Float
-    ) {
-        mWeatherForecastService.start(
-            lat: lat,
-            lon: long
-        )
     }
     
 }
@@ -72,7 +48,7 @@ extension ForecastViewController
 extension ForecastViewController
     : WeatherForecastDelegate {
     
-    func onForecastWeather(
+    public final func onForecastWeather(
         forecastModel: [WeatherForecastDay]
     ) {
         mTableForecast.forecastDays =

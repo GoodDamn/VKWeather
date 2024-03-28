@@ -103,8 +103,7 @@ public class WeatherViewController
             )
         )
         
-        mLastYPosView = mBtnForecast
-            .ybottom()
+        mLastYPosView = mBtnForecast.y()
         
         mLabelTemp
             .defaultFont()
@@ -163,8 +162,6 @@ public class WeatherViewController
             .accent(),
             for: .normal
         )
-        
-        
         
         view.addSubview(
             mLabelTemp
