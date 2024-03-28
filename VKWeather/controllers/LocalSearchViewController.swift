@@ -11,6 +11,7 @@ final public class LocalSearchViewController
     : UIViewController {
     
     private var mTextField: UITextField!
+    private var mBtnSearch: UIButton!
     
     private let mSearchService =
         LocalSearchService()
@@ -20,12 +21,24 @@ final public class LocalSearchViewController
         
         view.backgroundColor = .white
         
+        let marginTop = view.height() * 0.1
+        
         mTextField = UITextField(
             frame: CGRect(
-                x: 0,
-                y: view.height() * 0.1,
-                width: view.width(),
+                x: view.width()*0.05,
+                y: marginTop,
+                width: view.width() * 0.7,
                 height: view.height() * 0.1
+            )
+        )
+        
+        mBtnSearch = UIButton(
+            frame: CGRect(
+                x: mTextField.xright(),
+                y: marginTop,
+                width: view.width() -
+                    mTextField.xright(),
+                height: mTextField.height()
             )
         )
         
@@ -35,8 +48,45 @@ final public class LocalSearchViewController
         mTextField.returnKeyType = .search
         mTextField.keyboardType = .default
         
+        mBtnSearch.setTitle(
+            "Search",
+            for: .normal
+        )
+        
+        mBtnSearch.setTitleColor(
+            .accent(),
+            for: .normal
+        )
+        
+        mBtnSearch.titleLabel?
+            .textAlignment = .center
+        
+        mBtnSearch.addTarget(
+            self,
+            action: #selector(
+                onClickBtnSearch(_:)
+            ),
+            for: .touchUpInside
+        )
+        
         view.addSubview(
             mTextField
+        )
+        
+        view.addSubview(
+            mBtnSearch
+        )
+    }
+    
+}
+
+extension LocalSearchViewController {
+    
+    @objc private func onClickBtnSearch(
+        _ sender: UIButton
+    ) {
+        mSearchService.makeRequest(
+            query: mTextField.text ?? ""
         )
     }
     
