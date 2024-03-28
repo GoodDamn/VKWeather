@@ -2,4 +2,8 @@
 
 Simple app with OpenWeatherAPI
 
-![1](https://github.com/GoodDamn/VKWeather/assets/76108467/221d23a8-7202-4298-ac83-3a9288809686) | ![2](https://github.com/GoodDamn/VKWeather/assets/76108467/bf889ad5-40b0-4588-b368-456d1f93475f)
+![111](https://github.com/GoodDamn/VKWeather/assets/76108467/39d6fb31-6073-4d8c-b86a-cbe824bf396b) ![222](https://github.com/GoodDamn/VKWeather/assets/76108467/757ccde9-348a-48b3-b19b-8a9701750d91) ![333](https://github.com/GoodDamn/VKWeather/assets/76108467/d477ee0e-effa-44bb-85bf-71f62e39269e) ![444](https://github.com/GoodDamn/VKWeather/assets/76108467/dc298b53-d6e9-4f27-83b1-7239e2b1a777)
+
+
+
+
