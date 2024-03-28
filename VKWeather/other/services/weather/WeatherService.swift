@@ -73,6 +73,10 @@ final public class WeatherService
                 model: model?.main
             )
             
+            delegate.onGetWindInfo(
+                model: model?.wind
+            )
+            
             delegate.onGetCityInfo(
                 model: WeatherCity(
                     city: model?.name,

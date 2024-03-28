@@ -21,5 +21,9 @@ public protocol WeatherServiceDelegate
     func onGetCityInfo(
         model: WeatherCity?
     )
+ 
+    func onGetWind(
+        model: WeatherWind?
+    )
     
 }

@@ -236,6 +236,12 @@ extension WeatherViewController
         mLabelWeatherState.text = model?.main
     }
     
+    public func onGetWind(
+        model: WeatherWind?
+    ) {
+        <#code#>
+    }
+    
     public final func onGetCityInfo(
         model: WeatherCity?
     ) {
