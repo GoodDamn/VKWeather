@@ -92,7 +92,7 @@ final public class LocalSearchViewController
             mTableResults
         )
         
-        
+        mTableResults.delegateResult = self
         mSearchService.delegate = self
     }
     
@@ -132,6 +132,22 @@ extension LocalSearchViewController
         results: inout [String]
     ) {
         mTableResults.result = results
+    }
+    
+}
+
+extension LocalSearchViewController
+    : UITableViewMapResultsDelegate {
+    
+    public func onSelectResult(
+        result: String
+    ) {
+        let cityVc = CityWeatherViewController()
+        cityVc.city = result
+        navigationController?.pushViewController(
+            cityVc,
+            animated: true
+        )
     }
     
 }

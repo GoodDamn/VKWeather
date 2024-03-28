@@ -12,6 +12,9 @@ final public class UITableViewMapResults
     
     private static let mCellId = "mapCell"
     
+    public final var delegateResult:
+        UITableViewMapResultsDelegate?
+    
     public final var result: [String]? {
         didSet {
             reloadData()
@@ -45,7 +48,28 @@ final public class UITableViewMapResults
                 .mCellId
         )
         
+        delegate = self
         dataSource = self
+    }
+    
+}
+
+extension UITableViewMapResults
+    : UITableViewDelegate {
+    
+    public func tableView(
+        _ tableView: UITableView,
+        didSelectRowAt indexPath: IndexPath
+    ) {
+        let index = indexPath.row
+        
+        guard let res = result?[index] else {
+            return
+        }
+        
+        delegateResult?.onSelectResult(
+            result: res
+        )
     }
     
 }
