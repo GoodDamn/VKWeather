@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class WeatherViewController
+public class WeatherViewController
     : UIViewController {
     
     // Strong refs
@@ -20,15 +20,12 @@ final class WeatherViewController
     private var mBtnForecast: UIButton!
     private var mBtnSearch: UIButton!
     
-    private let mWeatherService =
+    internal let mWeatherService =
         WeatherService(
             id: 3
         )
     
-    private let mLocationService =
-        LocationService()
-    
-    override func viewDidLoad() {
+    public override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
@@ -232,12 +229,10 @@ final class WeatherViewController
         )
         
         mWeatherService.delegate = self
-        mLocationService.delegate = self
         
         mWeatherService
             .loadFromCache()
         
-        mLocationService.start()
     }
     
 }
@@ -270,44 +265,21 @@ extension WeatherViewController {
 }
 
 extension WeatherViewController
-    : LocationServiceDelegate {
-    
-    func onGetLocation(
-        lat: Float,
-        long: Float
-    ) {
-        print(
-            WeatherViewController.self,
-            "onGetLocation:",
-            lat,
-            long
-        )
-        
-        mWeatherService.start(
-            lat: lat,
-            long: long
-        )
-        
-    }
-    
-}
-
-extension WeatherViewController
     : WeatherServiceDelegate {
     
-    func onGetWeather(
+    public func onGetWeather(
         model: Weather?
     ) {
         mLabelWeatherState.text = model?.main
     }
     
-    func onGetCityInfo(
+    public func onGetCityInfo(
         model: WeatherCity?
     ) {
         mLabelCity.text = model?.city
     }
     
-    func onGetAirWeather(
+    public func onGetAirWeather(
         model: WeatherAir?
     ) {
         guard let model = model else {
