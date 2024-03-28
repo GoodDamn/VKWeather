@@ -10,11 +10,14 @@ import UIKit
 final public class CityWeatherViewController
     : WeatherViewController {
     
-    public final var city: String?
+    public final var city = "Moscow"
     
     public override func viewDidLoad() {
         super.viewDidLoad()
         
+        mWeatherService.start(
+            city: city
+        )
     }
     
 }

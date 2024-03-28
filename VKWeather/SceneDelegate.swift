@@ -27,7 +27,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         let navc = UINavigationController(
             rootViewController:
-                WeatherViewController()
+                LocationWeatherViewController()
         )
         
         window?.rootViewController = navc
