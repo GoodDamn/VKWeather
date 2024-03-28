@@ -7,7 +7,7 @@
 
 import UIKit
 
-final public class LocationWeatherViewController
+public class LocationWeatherViewController
     : WeatherViewController {
     
     private let mLocationService =

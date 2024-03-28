@@ -28,6 +28,8 @@
 		250371552BB531AC00EF9C1F /* CityWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371542BB531AC00EF9C1F /* CityWeatherViewController.swift */; };
 		250371572BB532D900EF9C1F /* LocationWeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 250371562BB532D900EF9C1F /* LocationWeatherViewController.swift */; };
 		257D810B2BB538D500B5743B /* UITableViewMapResultsDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D810A2BB538D500B5743B /* UITableViewMapResultsDelegate.swift */; };
+		257D81142BB5434C00B5743B /* LocationWithSearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D81132BB5434C00B5743B /* LocationWithSearchViewController.swift */; };
+		257D81172BB543D900B5743B /* UtilsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 257D81162BB543D900B5743B /* UtilsView.swift */; };
 		2592D2682BAD792200650B28 /* WeatherService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D2672BAD792200650B28 /* WeatherService.swift */; };
 		2592D26B2BAD797700650B28 /* WeatherServiceDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */; };
 		2592D26E2BB02A5000650B28 /* LocationService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2592D26D2BB02A5000650B28 /* LocationService.swift */; };
@@ -97,6 +99,8 @@
 		250371542BB531AC00EF9C1F /* CityWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CityWeatherViewController.swift; sourceTree = "<group>"; };
 		250371562BB532D900EF9C1F /* LocationWeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWeatherViewController.swift; sourceTree = "<group>"; };
 		257D810A2BB538D500B5743B /* UITableViewMapResultsDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITableViewMapResultsDelegate.swift; sourceTree = "<group>"; };
+		257D81132BB5434C00B5743B /* LocationWithSearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationWithSearchViewController.swift; sourceTree = "<group>"; };
+		257D81162BB543D900B5743B /* UtilsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UtilsView.swift; sourceTree = "<group>"; };
 		2592D2672BAD792200650B28 /* WeatherService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherService.swift; sourceTree = "<group>"; };
 		2592D26A2BAD797700650B28 /* WeatherServiceDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherServiceDelegate.swift; sourceTree = "<group>"; };
 		2592D26D2BB02A5000650B28 /* LocationService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationService.swift; sourceTree = "<group>"; };
@@ -279,6 +283,7 @@
 		250371532BB5302100EF9C1F /* weather */ = {
 			isa = PBXGroup;
 			children = (
+				257D810C2BB53EC000B5743B /* withSearchCity */,
 				25B6F6F42BAAA327007C71FB /* WeatherViewController.swift */,
 				250371542BB531AC00EF9C1F /* CityWeatherViewController.swift */,
 				250371562BB532D900EF9C1F /* LocationWeatherViewController.swift */,
@@ -292,6 +297,22 @@
 				257D810A2BB538D500B5743B /* UITableViewMapResultsDelegate.swift */,
 			);
 			path = tableView;
+			sourceTree = "<group>";
+		};
+		257D810C2BB53EC000B5743B /* withSearchCity */ = {
+			isa = PBXGroup;
+			children = (
+				257D81132BB5434C00B5743B /* LocationWithSearchViewController.swift */,
+			);
+			path = withSearchCity;
+			sourceTree = "<group>";
+		};
+		257D81152BB543C900B5743B /* views */ = {
+			isa = PBXGroup;
+			children = (
+				257D81162BB543D900B5743B /* UtilsView.swift */,
+			);
+			path = views;
 			sourceTree = "<group>";
 		};
 		2592D2662BAD791400650B28 /* services */ = {
@@ -439,6 +460,7 @@
 		25B6F7232BAAA5B5007C71FB /* utils */ = {
 			isa = PBXGroup;
 			children = (
+				257D81152BB543C900B5743B /* views */,
 				25B6F7292BAAAD02007C71FB /* weather */,
 			);
 			path = utils;
@@ -673,12 +695,14 @@
 				250371422BB33C0400EF9C1F /* ForecastViewController.swift in Sources */,
 				257D810B2BB538D500B5743B /* UITableViewMapResultsDelegate.swift in Sources */,
 				2592D2752BB0420E00650B28 /* WeatherCity.swift in Sources */,
+				257D81142BB5434C00B5743B /* LocationWithSearchViewController.swift in Sources */,
 				2503711D2BB1BEFF00EF9C1F /* WeatherForecastDelegate.swift in Sources */,
 				25B6F6F52BAAA327007C71FB /* WeatherViewController.swift in Sources */,
 				25B6F6F12BAAA327007C71FB /* AppDelegate.swift in Sources */,
 				250371222BB1D34100EF9C1F /* WeatherForecast.swift in Sources */,
 				250371572BB532D900EF9C1F /* LocationWeatherViewController.swift in Sources */,
 				25B6F6F32BAAA327007C71FB /* SceneDelegate.swift in Sources */,
+				257D81172BB543D900B5743B /* UtilsView.swift in Sources */,
 				2592D2712BB02E7200650B28 /* CLLocationManager.swift in Sources */,
 				250371482BB3CCD800EF9C1F /* URL.swift in Sources */,
 				25B6F73B2BAAD3CD007C71FB /* Weather.swift in Sources */,

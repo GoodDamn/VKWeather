@@ -18,9 +18,9 @@ public class WeatherViewController
     private var mLabelImageHumidity: UILabelImage!
     private var mLabelImagePressure: UILabelImage!
     private var mBtnForecast: UIButton!
-    private var mBtnSearch: UIButton!
     
-    internal let mWeatherService =
+    internal final var mLastYPosView: CGFloat = 0
+    internal final let mWeatherService =
         WeatherService(
             id: 3
         )
@@ -103,14 +103,8 @@ public class WeatherViewController
             )
         )
         
-        mBtnSearch = UIButton(
-            frame: CGRect(
-                x: 0,
-                y: mBtnForecast.y() - h * 0.1,
-                width: w,
-                height: h * 0.1
-            )
-        )
+        mLastYPosView = mBtnForecast
+            .ybottom()
         
         mLabelTemp
             .defaultFont()
@@ -170,15 +164,7 @@ public class WeatherViewController
             for: .normal
         )
         
-        mBtnSearch.setTitle(
-            "Search city",
-            for: .normal
-        )
         
-        mBtnSearch.setTitleColor(
-            .accent(),
-            for: .normal
-        )
         
         view.addSubview(
             mLabelTemp
@@ -205,19 +191,7 @@ public class WeatherViewController
         )
         
         view.addSubview(
-            mBtnSearch
-        )
-        
-        view.addSubview(
             mBtnForecast
-        )
-        
-        mBtnSearch.addTarget(
-            self,
-            action: #selector(
-                onClickBtnSearch(_:)
-            ),
-            for: .touchUpInside
         )
         
         mBtnForecast.addTarget(
@@ -249,37 +223,24 @@ extension WeatherViewController {
         )
     }
     
-    @objc private final func onClickBtnSearch(
-        _ sender: UIButton
-    ) {
-        let localSearch =
-            LocalSearchViewController()
-        
-        navigationController?
-            .pushViewController(
-                localSearch,
-                animated: true
-            )
-    }
-    
 }
 
 extension WeatherViewController
     : WeatherServiceDelegate {
     
-    public func onGetWeather(
+    public final func onGetWeather(
         model: Weather?
     ) {
         mLabelWeatherState.text = model?.main
     }
     
-    public func onGetCityInfo(
+    public final func onGetCityInfo(
         model: WeatherCity?
     ) {
         mLabelCity.text = model?.city
     }
     
-    public func onGetAirWeather(
+    public final func onGetAirWeather(
         model: WeatherAir?
     ) {
         guard let model = model else {
